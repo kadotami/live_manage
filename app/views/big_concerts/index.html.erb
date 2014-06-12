@@ -1,0 +1,31 @@
+<h1>Listing big_concerts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Season</th>
+      <th>Can edit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @big_concerts.each do |big_concert| %>
+      <tr>
+        <td><%= big_concert.year %></td>
+        <td><%= big_concert.season %></td>
+        <td><%= big_concert.can_edit %></td>
+        <td><%= link_to 'Show', big_concert %></td>
+        <td><%= link_to 'Edit', edit_big_concert_path(big_concert) %></td>
+        <td><%= link_to 'Destroy', big_concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Big concert', new_big_concert_path %>

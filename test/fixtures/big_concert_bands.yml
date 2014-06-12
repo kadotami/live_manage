@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  leader: MyString
+  vo: MyString
+  gt1: MyString
+  gt2: MyString
+  ba: MyString
+  dr: MyString
+  key: MyString
+  day1: false
+  day2: false
+  day3: false
+  day4: false
+  description: MyText
+  year: 1
+  season: 1
+
+two:
+  name: MyString
+  leader: MyString
+  vo: MyString
+  gt1: MyString
+  gt2: MyString
+  ba: MyString
+  dr: MyString
+  key: MyString
+  day1: false
+  day2: false
+  day3: false
+  day4: false
+  description: MyText
+  year: 1
+  season: 1

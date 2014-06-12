@@ -1,0 +1,67 @@
+<%= form_for(@small_concert_band) do |f| %>
+  <% if @small_concert_band.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@small_concert_band.errors.count, "error") %> prohibited this small_concert_band from being saved:</h2>
+
+      <ul>
+      <% @small_concert_band.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :song %><br>
+    <%= f.text_field :song %>
+  </div>
+  <div class="field">
+    <%= f.label :leader %><br>
+    <%= f.text_field :leader %>
+  </div>
+  <div class="field">
+    <%= f.label :vo %><br>
+    <%= f.text_field :vo %>
+  </div>
+  <div class="field">
+    <%= f.label :gt1 %><br>
+    <%= f.text_field :gt1 %>
+  </div>
+  <div class="field">
+    <%= f.label :gt2 %><br>
+    <%= f.text_field :gt2 %>
+  </div>
+  <div class="field">
+    <%= f.label :ba %><br>
+    <%= f.text_field :ba %>
+  </div>
+  <div class="field">
+    <%= f.label :dr %><br>
+    <%= f.text_field :dr %>
+  </div>
+  <div class="field">
+    <%= f.label :key %><br>
+    <%= f.text_field :key %>
+  </div>
+  <div class="field">
+    <%= f.label :week1 %><br>
+    <%= f.check_box :week1 %>
+  </div>
+  <div class="field">
+    <%= f.label :week2 %><br>
+    <%= f.check_box :week2 %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', small_concert_bands_path %>

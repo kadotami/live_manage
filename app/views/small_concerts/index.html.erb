@@ -1,0 +1,31 @@
+<h1>Listing small_concerts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Can edit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @small_concerts.each do |small_concert| %>
+      <tr>
+        <td><%= small_concert.year %></td>
+        <td><%= small_concert.month %></td>
+        <td><%= small_concert.can_edit %></td>
+        <td><%= link_to 'Show', small_concert %></td>
+        <td><%= link_to 'Edit', edit_small_concert_path(small_concert) %></td>
+        <td><%= link_to 'Destroy', small_concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Small concert', new_small_concert_path %>

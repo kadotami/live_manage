@@ -1,0 +1,29 @@
+<%= form_for(@small_concert) do |f| %>
+  <% if @small_concert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@small_concert.errors.count, "error") %> prohibited this small_concert from being saved:</h2>
+
+      <ul>
+      <% @small_concert.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :month %><br>
+    <%= f.number_field :month %>
+  </div>
+  <div class="field">
+    <%= f.label :can_edit %><br>
+    <%= f.check_box :can_edit %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
