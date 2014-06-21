@@ -1,3 +1,4 @@
+<%= javascript_include_tag "accordion" %>
 <div id="accordion" class="accordion">
   <% @small_concert_bands.each do |small_concert_band| %>
     <h3><%= small_concert_band.name %></h3>
@@ -25,6 +26,7 @@
         <% end %>
       </dt>
       <dt>備考:<%= small_concert_band.description %></dt>
+      <dt><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></dt>
     </dl>
   <% end %>
 </div>
