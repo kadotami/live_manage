@@ -44,8 +44,13 @@ gem 'paperclip'
 gem 'font-awesome-rails'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
+# rest api
+gem 'grape'
+gem 'grape-entity'
+
+gem 'uuidtools'
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -54,3 +59,18 @@ gem 'font-awesome-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group  :development, :test do
+  gem 'thin'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'bullet'
+  gem "rspec-rails"
+  gem "capybara"
+  gem "database_cleaner"
+  gem 'factory_girl_rails'
+  gem 'guard-rspec'
+  # PhantomJS driver for Capybara
+  gem 'poltergeist', '~> 1.4.1'
+end
