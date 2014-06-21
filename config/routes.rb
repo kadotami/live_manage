@@ -1,5 +1,5 @@
 Wuk::Application.routes.draw do
-  root :to => "top#index"
+  root :to => "sessions#new"
   get "top/index"
   resources :big_concert_bands do
     collection do
@@ -24,6 +24,10 @@ Wuk::Application.routes.draw do
       get :all
     end
   end
+
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
