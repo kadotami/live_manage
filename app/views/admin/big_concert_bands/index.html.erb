@@ -1,0 +1,54 @@
+<h1>Listing big_concert_bands</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Leader</th>
+      <th>Vo</th>
+      <th>Gt1</th>
+      <th>Gt2</th>
+      <th>Ba</th>
+      <th>Dr</th>
+      <th>Key</th>
+      <th>Day1</th>
+      <th>Day2</th>
+      <th>Day3</th>
+      <th>Day4</th>
+      <th>Description</th>
+      <th>Year</th>
+      <th>Season</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @big_concert_bands.each do |big_concert_band| %>
+      <tr>
+        <td><%= big_concert_band.name %></td>
+        <td><%= big_concert_band.leader %></td>
+        <td><%= big_concert_band.vo %></td>
+        <td><%= big_concert_band.gt1 %></td>
+        <td><%= big_concert_band.gt2 %></td>
+        <td><%= big_concert_band.ba %></td>
+        <td><%= big_concert_band.dr %></td>
+        <td><%= big_concert_band.key %></td>
+        <td><%= big_concert_band.day1 %></td>
+        <td><%= big_concert_band.day2 %></td>
+        <td><%= big_concert_band.day3 %></td>
+        <td><%= big_concert_band.day4 %></td>
+        <td><%= big_concert_band.description %></td>
+        <td><%= big_concert_band.year %></td>
+        <td><%= big_concert_band.season %></td>
+        <td><%= link_to 'Edit', edit_big_concert_band_path(big_concert_band) %></td>
+        <td><%= link_to 'Destroy', big_concert_band, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Big concert band', new_big_concert_band_path %>

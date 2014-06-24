@@ -1,0 +1,32 @@
+<%= javascript_include_tag "accordion" %>
+<div id="accordion" class="accordion">
+  <% @small_concert_bands.each do |small_concert_band| %>
+    <h3><%= small_concert_band.name %></h3>
+    <dl>
+      <dt>曲：<%= small_concert_band.song %></dt>
+      <dt>リーダー：<%= small_concert_band.leader %></dt>
+      <dt>Vo:<%= small_concert_band.vo %></dt>
+      <dt>Gt1：<%= small_concert_band.gt1 %></dt>
+      <dt>Gt2：<%= small_concert_band.gt2 %></dt>
+      <dt>Ba:<%= small_concert_band.ba %></dt>
+      <dt>Dr：<%= small_concert_band.dr %></dt>
+      <dt>Key：<%= small_concert_band.key %></dt>
+      <dt>
+        1周目:
+        <% if small_concert_band.week1 %>
+          ◯
+        <% else %>
+          ☓
+        <% end %>
+        2周目:
+        <% if small_concert_band.week2 %>
+          ◯
+        <% else %>
+          ☓
+        <% end %>
+      </dt>
+      <dt>備考:<%= small_concert_band.description %></dt>
+      <dt><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></dt>
+    </dl>
+  <% end %>
+</div>

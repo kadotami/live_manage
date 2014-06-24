@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:session][:name].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_to '/top/index'
+      if user.role_flag
+        redirect_to '/admin/top/index'
+      else
+        redirect_to '/top/index'
+      end
     else
       render 'new'
     end

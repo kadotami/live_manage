@@ -1,0 +1,12 @@
+  <% @big_concerts.each do |big_concert| %>
+    <li><a href="/big_concert_bands/list?year=<%= big_concert.year %>&season=<%= big_concert.season %>">
+      <%= big_concert.year %>年
+      <% if big_concert.season == 0 %>
+        春
+      <% elsif big_concert.season == 1 %>
+        夏
+      <% elsif big_concert.season == 2 %>
+        秋
+      <% end %>
+    </a></li>
+  <% end %>
