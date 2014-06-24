@@ -1,3 +1,9 @@
 <div id="header">
+  <% if signed_in? %>
+    <a class='h_left' href="/top/index">トップへ</a>
+  <% end %>
   <h2><%= @title %></h2>
+  <% if signed_in? %>
+    <a class='h_right' href="/signout">Sign Out</a>
+  <% end %>
 </div>

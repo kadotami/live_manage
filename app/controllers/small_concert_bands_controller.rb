@@ -23,7 +23,8 @@ class SmallConcertBandsController < ApplicationController
 
   # GET /small_concert_bands/new
   def new
-    @title = "教室ライブ申請"
+    last_concert = SmallConcert.last
+    @title = last_concert.year.to_s+"年"+ last_concert.month.to_s + "月教室ライブ申請"
     @small_concert_band = SmallConcertBand.new
   end
 

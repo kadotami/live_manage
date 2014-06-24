@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   def new
     @title = "ログイン"
+    if signed_in?
+      redirect_to '/top/index'
+    end
   end
 
   def create
@@ -9,7 +12,6 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_to '/top/index'
     else
-      flash[:error] = 'Invalid email/password combination' # 誤りあり!
       render 'new'
     end
   end

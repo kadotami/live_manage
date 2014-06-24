@@ -12,55 +12,46 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <input name="small_concert_band[name]" type="text" placeholder="バンド名">
   </div>
   <div class="field">
-    <%= f.label :song %><br>
-    <%= f.text_field :song %>
+    <input name="small_concert_band[song]" type="text" placeholder="曲名">
   </div>
   <div class="field">
-    <%= f.label :leader %><br>
-    <%= f.text_field :leader %>
+    <input name="small_concert_band[leader]" type="text" placeholder="リーダー">
   </div>
   <div class="field">
-    <%= f.label :vo %><br>
-    <%= f.text_field :vo %>
+    <input name="small_concert_band[vo]" type="text" placeholder="Vo">
   </div>
   <div class="field">
-    <%= f.label :gt1 %><br>
-    <%= f.text_field :gt1 %>
+    <input name="small_concert_band[gt1]" type="text" placeholder="Gt1">
   </div>
   <div class="field">
-    <%= f.label :gt2 %><br>
-    <%= f.text_field :gt2 %>
+    <input name="small_concert_band[gt2]" type="text" placeholder="Gt2">
   </div>
   <div class="field">
-    <%= f.label :ba %><br>
-    <%= f.text_field :ba %>
+    <input name="small_concert_band[ba]" type="text" placeholder="Ba">
   </div>
   <div class="field">
-    <%= f.label :dr %><br>
-    <%= f.text_field :dr %>
+    <input name="small_concert_band[dr]" type="text" placeholder="Dr">
   </div>
   <div class="field">
-    <%= f.label :key %><br>
-    <%= f.text_field :key %>
+    <input name="small_concert_band[key]" type="text" placeholder="Key">
   </div>
-  <div class="field">
-    <%= f.label :week1 %><br>
+  <div class="field check">
+    <label>1週目</label>
     <%= f.check_box :week1 %>
   </div>
-  <div class="field">
-    <%= f.label :week2 %><br>
+  <div class="field check">
+    <label>2周目</label>
     <%= f.check_box :week2 %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <label>備考</label><br>
+    <textarea name="small_concert_band[description]"></textarea>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <input name="commit" type="submit" value="申請">
   </div>
 <% end %>
 

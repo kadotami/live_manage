@@ -9,8 +9,17 @@ class BigConcertBandsController < ApplicationController
 
   def list
     year = params[:year]
-    season = params[:season]
-    @big_concert_bands = BigConcertBand.all
+    season_param = params[:season]
+    if season_param.to_i == 0
+      season = '春'
+    elsif season_param.to_i == 1
+      season = '夏'
+    elsif season_param.to_i == 2
+      season = '秋'
+    end
+    @title = year.to_s + "年" + season + "コン"
+    @big_concert_bands = BigConcertBand.where(year: year)
+                                          .where(season: season_param).load
   end
 
   # GET /big_concert_bands/1
@@ -20,6 +29,15 @@ class BigConcertBandsController < ApplicationController
 
   # GET /big_concert_bands/new
   def new
+    last_concert = BigConcert.last
+    if last_concert.season == 0
+      season = '春'
+    elsif last_concert.season == 1
+      season = '夏'
+    elsif last_concert.season == 2
+      season = '秋'
+    end
+    @title = last_concert.year.to_s + "年" + season + "コン申請"
     @big_concert_band = BigConcertBand.new
   end
 
@@ -31,7 +49,9 @@ class BigConcertBandsController < ApplicationController
   # POST /big_concert_bands.json
   def create
     @big_concert_band = BigConcertBand.new(big_concert_band_params)
-
+    last_concert = BigConcert.last
+    @big_concert_band.year = last_concert.year
+    @big_concert_band.season = last_concert.season
     respond_to do |format|
       if @big_concert_band.save
         format.html { redirect_to @big_concert_band, notice: 'Big concert band was successfully created.' }

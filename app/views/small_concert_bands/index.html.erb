@@ -40,14 +40,9 @@
         <td><%= small_concert_band.description %></td>
         <td><%= small_concert_band.year %></td>
         <td><%= small_concert_band.month %></td>
-        <td><%= link_to 'Show', small_concert_band %></td>
-        <td><%= link_to 'Edit', edit_small_concert_band_path(small_concert_band) %></td>
-        <td><%= link_to 'Destroy', small_concert_band, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></td>
+        <td><%= link_to '削除', small_concert_band, method: :delete, data: { confirm: 'ほんとに?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Small concert band', new_small_concert_band_path %>

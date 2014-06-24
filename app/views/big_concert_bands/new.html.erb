@@ -1,5 +1,3 @@
-<h1>New big_concert_band</h1>
-
 <%= form_for(@big_concert_band) do |f| %>
   <% if @big_concert_band.errors.any? %>
     <div id="error_explanation">
@@ -14,58 +12,50 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <input name="big_concert_band[name]" type="text" placeholder="バンド名">
   </div>
   <div class="field">
-    <%= f.label :leader %><br>
-    <%= f.text_field :leader %>
+    <input name="big_concert_band[leader]" type="text" placeholder="リーダー">
   </div>
   <div class="field">
-    <%= f.label :vo %><br>
-    <%= f.text_field :vo %>
+    <input name="big_concert_band[vo]" type="text" placeholder="Vo">
   </div>
   <div class="field">
-    <%= f.label :gt1 %><br>
-    <%= f.text_field :gt1 %>
+    <input name="big_concert_band[gt1]" type="text" placeholder="Gt1">
   </div>
   <div class="field">
-    <%= f.label :gt2 %><br>
-    <%= f.text_field :gt2 %>
+    <input name="big_concert_band[gt2]" type="text" placeholder="Gt2">
   </div>
   <div class="field">
-    <%= f.label :ba %><br>
-    <%= f.text_field :ba %>
+    <input name="big_concert_band[ba]" type="text" placeholder="Ba">
   </div>
   <div class="field">
-    <%= f.label :dr %><br>
-    <%= f.text_field :dr %>
+    <input name="big_concert_band[dr]" type="text" placeholder="Dr">
   </div>
   <div class="field">
-    <%= f.label :key %><br>
-    <%= f.text_field :key %>
+    <input name="big_concert_band[key]" type="text" placeholder="Key">
   </div>
-  <div class="field">
-    <%= f.label :day1 %><br>
+  <div class="field check">
+    <label>1日目</label>
     <%= f.check_box :day1 %>
   </div>
-  <div class="field">
-    <%= f.label :day2 %><br>
+  <div class="field check">
+    <label>2日目</label>
     <%= f.check_box :day2 %>
   </div>
-  <div class="field">
-    <%= f.label :day3 %><br>
+  <div class="field check">
+    <label>3日目</label>
     <%= f.check_box :day3 %>
   </div>
-  <div class="field">
-    <%= f.label :day4 %><br>
+  <div class="field check">
+    <label>4日目</label>
     <%= f.check_box :day4 %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <label>備考</label><br>
+    <textarea name="big_concert_band[description]"></textarea>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <input name="commit" type="submit" value="申請">
   </div>
 <% end %>

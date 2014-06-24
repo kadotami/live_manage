@@ -25,10 +25,35 @@ Wuk::Application.routes.draw do
     end
   end
 
-  resources :sessions, only: [:new, :create, :destroy]
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  namespace :admin do
+    get "top/index"
+    resources :small_concerts do
+      collection do
+        get :new
+      end
+    end
+    resources :small_concert_bands do
+      collection do
+        get :manage
+      end
+    end
+    resources :big_concerts do
+      collection do
+        get :new
+      end
+    end
+    resources :big_concert_bands do
+      collection do
+        get :manage
+      end
+    end
+  end
 
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/signin',  to: 'sessions#new',         via: 'get'
+  get '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  get '*path', :controller => 'application', :action => 'render_404'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
