@@ -1,22 +1,18 @@
-<h1>Listing small_concert_bands</h1>
-
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Song</th>
-      <th>Leader</th>
-      <th>Vo</th>
-      <th>Gt1</th>
-      <th>Gt2</th>
-      <th>Ba</th>
-      <th>Dr</th>
-      <th>Key</th>
-      <th>Week1</th>
-      <th>Week2</th>
-      <th>Description</th>
-      <th>Year</th>
-      <th>Month</th>
+      <th>バンド名</th>
+      <th>曲名</th>
+      <th>リーダー</th>
+      <th>ボーカル</th>
+      <th>ギター1</th>
+      <th>ギター2</th>
+      <th>ベース</th>
+      <th>ドラム</th>
+      <th>キーボード</th>
+      <th>１週目</th>
+      <th>２週目</th>
+      <th>備考</th>
       <th></th>
       <th></th>
       <th></th>
@@ -35,11 +31,21 @@
         <td><%= small_concert_band.ba %></td>
         <td><%= small_concert_band.dr %></td>
         <td><%= small_concert_band.key %></td>
-        <td><%= small_concert_band.week1 %></td>
-        <td><%= small_concert_band.week2 %></td>
+        <td>
+          <% if small_concert_band.week1 %>
+            ◯
+          <%else%>
+            ☓
+          <%end%>
+        </td>
+        <td>
+          <% if small_concert_band.week2 %>
+            ◯
+          <%else%>
+            ☓
+          <%end%>
+        </td>
         <td><%= small_concert_band.description %></td>
-        <td><%= small_concert_band.year %></td>
-        <td><%= small_concert_band.month %></td>
         <td><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></td>
         <td><%= link_to '削除', small_concert_band, method: :delete, data: { confirm: 'ほんとに?' } %></td>
       </tr>

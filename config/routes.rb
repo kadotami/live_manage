@@ -27,21 +27,13 @@ Wuk::Application.routes.draw do
 
   namespace :admin do
     get "top/index"
-    resources :small_concerts do
-      collection do
-        get :new
-      end
-    end
+    resources :small_concerts
     resources :small_concert_bands do
       collection do
         get :manage
       end
     end
-    resources :big_concerts do
-      collection do
-        get :new
-      end
-    end
+    resources :big_concerts
     resources :big_concert_bands do
       collection do
         get :manage

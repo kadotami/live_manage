@@ -10,13 +10,7 @@ class BigConcertBandsController < ApplicationController
   def list
     year = params[:year]
     season_param = params[:season]
-    if season_param.to_i == 0
-      season = '春'
-    elsif season_param.to_i == 1
-      season = '夏'
-    elsif season_param.to_i == 2
-      season = '秋'
-    end
+    season = season_string(season_param.to_i)
     @title = year.to_s + "年" + season + "コン"
     @big_concert_bands = BigConcertBand.where(year: year)
                                           .where(season: season_param).load
@@ -30,13 +24,7 @@ class BigConcertBandsController < ApplicationController
   # GET /big_concert_bands/new
   def new
     last_concert = BigConcert.last
-    if last_concert.season == 0
-      season = '春'
-    elsif last_concert.season == 1
-      season = '夏'
-    elsif last_concert.season == 2
-      season = '秋'
-    end
+    season = season_string(last_concert.season)
     @title = last_concert.year.to_s + "年" + season + "コン申請"
     @big_concert_band = BigConcertBand.new
   end

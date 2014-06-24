@@ -1,5 +1,28 @@
-<h1>New big_concert</h1>
+<%= form_for(@big_concert) do |f| %>
+  <% if @big_concert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@big_concert.errors.count, "error") %> prohibited this big_concert from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @big_concert.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :season %><br>
+    <%= f.number_field :season %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Back', big_concerts_path %>

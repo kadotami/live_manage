@@ -1,24 +1,18 @@
 <table>
-  <thead>
-    <tr>
-      <th>Year</th>
-      <th>Month</th>
-      <th>Can edit</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
   <tbody>
     <% @small_concerts.each do |small_concert| %>
       <tr>
-        <td><%= small_concert.year %></td>
-        <td><%= small_concert.month %></td>
-        <td><%= small_concert.can_edit %></td>
-        <td><%= link_to 'Show', small_concert %></td>
-        <td><%= link_to 'Edit', edit_small_concert_path(small_concert) %></td>
-        <td><%= link_to 'Destroy', small_concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><a href='/admin/small_concert_bands/?year=<%= small_concert.year %>&month=<%= small_concert.month %>'><%= small_concert.year %>年<%= small_concert.month %>月</a></td>
+        <td>
+          <%if small_concert.can_edit %>
+            編集受付中
+          <% else %>
+            締め切り済
+          <%end%>
+        </td>
+        <td><%= link_to '編集', edit_small_concert_path(small_concert) %></td>
+        <td><%= link_to '削除', small_concert, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>
