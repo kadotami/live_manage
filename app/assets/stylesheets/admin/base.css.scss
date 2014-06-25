@@ -1,3 +1,4 @@
+@import 'settings';
 html ,body{
   color: #000;
   height: 100%;
@@ -27,9 +28,11 @@ li {
 }
 
 #container {
-  width: 100%;
-  max-width: 1024px;
-  min-width: 848px;
-  padding-top: 48px;
-  margin: 0 auto;
+  padding-top: $header_height;
+  margin: 0 0 0 $menu_width;
+  #content {
+    width: 1024px;
+    padding: 20px;
+    margin: 0 auto;
+  }
 }

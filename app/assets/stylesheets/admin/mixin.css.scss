@@ -1,0 +1,111 @@
+// ===================================================================
+// mixinやらCSS3やら、extendも。
+// ===================================================================
+$set_prefix: -webkit-, -moz-, -ms-, -o-, '';
+
+$modules: () !default;
+@mixin exports($name) {
+  @if (index($modules, $name) == false) {
+    $modules: append($modules, $name);
+    @content;
+  }
+}
+
+// box-sizing
+@mixin box_sizing{
+  @each $prefix in $set_prefix {
+    #{$prefix}box-sizing: border-box;
+  }
+}
+
+// border-radius
+@mixin border_radius($br_value) {
+  @each $prefix in $set_prefix {
+    #{$prefix}border-radius: $br_value;
+  }
+}
+
+
+// background-size
+@mixin bg_size($w, $h: auto) {
+  @each $prefix in $set_prefix {
+    #{$prefix}background-size: $w $h;
+  }
+}
+
+//box-shadow
+@mixin box_shadow($h: 5px,$v: 5px,$s: 5px,$e: 0px, $color: #333) {
+  @each $prefix in $set_prefix {
+    #{$prefix}box-shadow: $h $v $s $e $color;
+  }
+}
+
+//box-shadow-inset
+@mixin box_shadow-inset($h: 5px,$v: 5px,$s: 5px,$e: 0px, $color: #333) {
+  @each $prefix in $set_prefix {
+    #{$prefix}box-shadow: $h $v $s $e $color inset;
+  }
+}
+
+//text-shadow
+@mixin text_shadow($h: 1px,$v: 1px,$s: 0px, $color: #333) {
+  @each $prefix in $set_prefix {
+    #{$prefix}text-shadow: $h $v $s $color;
+  }
+}
+
+// transform rotate
+@mixin rotate($rotate:-3deg) {
+  @each $prefix in $set_prefix {
+    #{$prefix}transform: rotate($rotate)
+  }
+}
+
+// min-height
+@mixin min_height($value) {
+  min-height: $value;
+  _height: $value;
+}
+
+// appearance-button
+@mixin appearance-button{
+  @each $prefix in $set_prefix {
+    #{$prefix}appearance: button;
+  }
+}
+
+//gradient
+@mixin gradient ($startColor:white, $endColor:#E6E6E6){
+  background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+  background: -moz-linear-gradient(top, $startColor, $endColor);
+  background: -ms-linear-gradient(top, $startColor, $endColor);
+  background: -o-linear-gradient(top, $startColor, $endColor);
+}
+
+/* clearfix */
+.clearfix {
+  *zoom: 1;
+  &:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+// link color
+@mixin link_font_color($color) {
+  a {color: $color;}
+  a:link {color: $color;}
+  a:visited {color: $color;}
+  a:active {color: darken($color,10%);}
+}
+
+@mixin link_bg_color($color,$active_color) {
+  & a {background: $color;}
+  & a:link {background: $color;}
+  & a:visited {background: $color;}
+  & a:active {background: $active_color;}
+}
+

@@ -1,12 +1,17 @@
+@import '../settings';
+@import '../mixin';
+
 #admin-menu {
   position: fixed;
   left: 0;
   top: 0;
-  width: 160px;
+  width: $menu_width;
   height: 100%;
   padding-top: 48px;
+  background: #8cd26c;
   border-right: solid 1px #ccc;
   li {
+    @include link_font_color(darken(#4f9738,10%));
     width: 100%;
     height: 60px;
     line-height: 60px;
@@ -15,6 +20,9 @@
     a {
       display: block;
       text-decoration: none;
+    }
+    a:hover {
+      background: darken(#8cd26c,10%);
     }
   }
 }

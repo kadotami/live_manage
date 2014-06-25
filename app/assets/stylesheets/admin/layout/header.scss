@@ -1,26 +1,36 @@
+@import '../settings';
+@import '../mixin';
+
 #header{
+  @include link_font_color(#fff);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 45px;
-  line-height: 45px;
+  height: $header_height;
+  line-height: $header_height;
+  background: #666;
+  color: #fff;
   border-bottom: solid 1px;
   text-align: center;
-  .h_left {
+  z-index: 10;
+  a {
+    text-decoration: none;
+  }
+  .h_button {
     position: absolute;
+    padding: 5px 0;
+    width: $menu_width;
+    height: $header_height - 10;
+    line-height: $header_height - 10;
+    background:#333;
+  }
+  .h_left {
     top: 0;
     left: 0;
-    margin: 5px 10px;
-    height: 35px;
-    line-height: 35px;
   }
   .h_right {
-    position: absolute;
     top: 0;
     right: 0;
-    margin: 5px 10px;
-    height: 35px;
-    line-height: 35px;
   }
 }
