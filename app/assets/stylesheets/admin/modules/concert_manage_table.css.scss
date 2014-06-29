@@ -1,0 +1,21 @@
+@import '../mixin';
+.concert-manage-table {
+  width:100%;
+  text-align: center;
+  tbody{
+    tr {
+      width: 100%;
+      border-bottom: solid 2px #a00;
+      background: #8cd26c;
+      color: darken(#4f9738,20%);
+      @include link_font_color(darken(#4f9738,20%));
+      td {
+      }
+    }
+    tr:nth-child(2n) {
+      background: #777;
+      color: #fff;
+      @include link_font_color(#eee);
+    }
+  }
+}

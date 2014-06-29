@@ -12,17 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :year %><br>
+    年<br>
     <%= f.number_field :year %>
   </div>
   <div class="field">
-    <%= f.label :season %><br>
-    <%= f.number_field :season %>
+    季節<br>
+    <select class="design-select-box" name="big_concert[season]">
+      <option value='0'>春</option>
+      <option value='1'>夏</option>
+      <option value='2'>秋</option>
+    </select>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <input name="commit" type="submit" value="作成">
   </div>
 <% end %>
-
-
-<%= link_to 'Back', big_concerts_path %>

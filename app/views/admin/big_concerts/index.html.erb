@@ -1,8 +1,8 @@
-<table>
+<table class="concert-manage-table">
   <tbody>
     <% @big_concerts.each do |big_concert| %>
       <tr>
-        <td><%= big_concert.year %>年<%= season_string(big_concert.season) %></td>
+        <td><a href="/admin/big_concert_bands?year=<%= big_concert.year%>&season=<%=big_concert.season %>"><%= big_concert.year %>年<%= season_string(big_concert.season) %></a></td>
         <td>
           <%if big_concert.can_edit %>
             編集受付中
@@ -10,8 +10,8 @@
             締め切り済
           <%end%>
         </td>
-        <td><%= link_to 'Edit', edit_big_concert_path(big_concert) %></td>
-        <td><a data-confirm="Are you sure?" data-method="delete" href="/admin/big_concerts/<%=big_concert.id%>" rel="nofollow">Destroy</a></td>
+        <td><a href="/admin/big_concerts/<%=big_concert.id%>/edit">編集</a></td>
+        <td><a data-confirm="本当に?" data-method="delete" href="/admin/big_concerts/<%=big_concert.id%>" rel="nofollow">削除</a></td>
       </tr>
     <% end %>
   </tbody>

@@ -8,4 +8,12 @@ module ApplicationHelper
       "秋"
     end
   end
+
+  def marubatu(bool)
+    if bool
+      "◯"
+    else
+      "☓"
+    end
+  end
 end

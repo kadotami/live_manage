@@ -1,4 +1,4 @@
-<table>
+<table class="concert-manage-table">
 
   <tbody>
     <% @small_concerts.each do |small_concert| %>
@@ -11,8 +11,8 @@
             締め切り済
           <%end%>
         </td>
-        <td><%= link_to '編集', edit_small_concert_path(small_concert) %></td>
-        <td><%= link_to '削除', small_concert, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+        <td><a href="/admin/small_concerts/<%=small_concert.id%>/edit">編集</a></td>
+        <td><a data-confirm="本当に削除しますか?" data-method="delete" href="/admin/small_concerts/<%=small_concert.id%>" rel="nofollow">削除</a></td>
       </tr>
     <% end %>
   </tbody>

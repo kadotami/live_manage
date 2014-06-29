@@ -4,10 +4,6 @@ class Admin::BigConcertBandsController < AdminController
   # GET /big_concert_bands
   # GET /big_concert_bands.json
   def index
-    @big_concert_bands = BigConcertBand.all
-  end
-
-  def list
     year = params[:year]
     season_param = params[:season]
     if season_param.to_i == 0
@@ -27,48 +23,17 @@ class Admin::BigConcertBandsController < AdminController
   def show
   end
 
-  # GET /big_concert_bands/new
-  def new
-    last_concert = BigConcert.last
-    if last_concert.season == 0
-      season = '春'
-    elsif last_concert.season == 1
-      season = '夏'
-    elsif last_concert.season == 2
-      season = '秋'
-    end
-    @title = last_concert.year.to_s + "年" + season + "コン申請"
-    @big_concert_band = BigConcertBand.new
-  end
-
   # GET /big_concert_bands/1/edit
   def edit
   end
 
-  # POST /big_concert_bands
-  # POST /big_concert_bands.json
-  def create
-    @big_concert_band = BigConcertBand.new(big_concert_band_params)
-    last_concert = BigConcert.last
-    @big_concert_band.year = last_concert.year
-    @big_concert_band.season = last_concert.season
-    respond_to do |format|
-      if @big_concert_band.save
-        format.html { redirect_to @big_concert_band, notice: 'Big concert band was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @big_concert_band }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @big_concert_band.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # PATCH/PUT /big_concert_bands/1
   # PATCH/PUT /big_concert_bands/1.json
   def update
     respond_to do |format|
       if @big_concert_band.update(big_concert_band_params)
-        format.html { redirect_to @big_concert_band, notice: 'Big concert band was successfully updated.' }
+        format.html { redirect_to '/admin/big_concert_bands?year='+@big_concert_band.year.to_s+'&season='+@big_concert_band.season.to_s, notice: 'Big concert band was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -82,7 +47,7 @@ class Admin::BigConcertBandsController < AdminController
   def destroy
     @big_concert_band.destroy
     respond_to do |format|
-      format.html { redirect_to big_concert_bands_url }
+      format.html { redirect_to 'admin/big_concerts' }
       format.json { head :no_content }
     end
   end

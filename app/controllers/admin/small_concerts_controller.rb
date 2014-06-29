@@ -8,11 +8,6 @@ class Admin::SmallConcertsController < AdminController
     @title = "教室ライブ一覧"
   end
 
-  def all
-    @small_concerts = SmallConcert.all
-    @title = "教室ライブ一覧"
-  end
-
   # GET /small_concerts/1
   # GET /small_concerts/1.json
   def show

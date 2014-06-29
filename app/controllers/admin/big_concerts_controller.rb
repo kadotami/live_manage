@@ -4,13 +4,7 @@ class Admin::BigConcertsController < AdminController
   # GET /big_concerts
   # GET /big_concerts.json
   def index
-    @big_concerts = BigConcert.all
-    @title = "コン一覧"
-  end
-
-  def all
-    @big_concerts = BigConcert.all
-    @title = "コン一覧"
+    @big_concerts = BigConcert.order("id DESC")
   end
 
   # GET /big_concerts/1

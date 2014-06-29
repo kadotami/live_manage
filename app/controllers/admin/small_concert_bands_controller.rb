@@ -11,48 +11,14 @@ class Admin::SmallConcertBandsController < AdminController
                                           .where(month: month).load
   end
 
-  def list
-    year = params[:year]
-    month = params[:month]
-    @title = year.to_s + "年" + month.to_s + "月教室"
-    @small_concert_bands = SmallConcertBand.where(year: year)
-                                          .where(month: month).load
-  end
-
   # GET /small_concert_bands/1
   # GET /small_concert_bands/1.json
   def show
     @title = "申請バンド情報"
   end
 
-  # GET /small_concert_bands/new
-  def new
-    last_concert = SmallConcert.last
-    @title = last_concert.year.to_s+"年"+ last_concert.month.to_s + "月教室ライブ申請"
-    @small_concert_band = SmallConcertBand.new
-  end
-
   # GET /small_concert_bands/1/edit
   def edit
-  end
-
-  # POST /small_concert_bands
-  # POST /small_concert_bands.json
-  def create
-    @small_concert_band = SmallConcertBand.new(small_concert_band_params)
-    last_concert = SmallConcert.last
-    @small_concert_band.year = last_concert.year
-    @small_concert_band.month = last_concert.month
-
-    respond_to do |format|
-      if @small_concert_band.save
-        format.html { redirect_to @small_concert_band, notice: 'Small concert band was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @small_concert_band }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @small_concert_band.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /small_concert_bands/1

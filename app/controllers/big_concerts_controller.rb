@@ -34,7 +34,7 @@ class BigConcertsController < ApplicationController
 
     respond_to do |format|
       if @big_concert.save
-        format.html { redirect_to @big_concert, notice: 'Big concert was successfully created.' }
+        format.html { redirect_to '/admin/big_concerts/', notice: 'Big concert was successfully created.' }
         format.json { render action: 'show', status: :created, location: @big_concert }
       else
         format.html { render action: 'new' }
