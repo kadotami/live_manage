@@ -37,8 +37,8 @@
         <td><%= marubatu(big_concert_band.day3) %></td>
         <td><%= marubatu(big_concert_band.day4) %></td>
         <td class='description'><%= big_concert_band.description %></td>
-        <td><a href="/admin/big_concert_bands/1/edit">編集</a></td>
-        <td><a data-confirm="Are you sure?" data-method="delete" href="/admin/big_concert_bands/1" rel="nofollow">削除</a></td>
+        <td><a href="/admin/big_concert_bands/<%=big_concert_band.id%>/edit">編集</a></td>
+        <td><a data-confirm="Are you sure?" data-method="delete" href="/admin/big_concert_bands/<%=big_concert_band.id%>" rel="nofollow">削除</a></td>
       </tr>
     <% end %>
   </tbody>

@@ -4,21 +4,12 @@ class SmallConcertBandsController < ApplicationController
   # GET /small_concert_bands
   # GET /small_concert_bands.json
   def index
-    @small_concert_bands = SmallConcertBand.all
-  end
-
-  def list
     year = params[:year]
     month = params[:month]
     @title = year + "年" + month + "月教室"
     @small_concert_bands = SmallConcertBand.where(year: year)
                                           .where(month: month).load
-  end
-
-  # GET /small_concert_bands/1
-  # GET /small_concert_bands/1.json
-  def show
-    @title = "申請バンド情報"
+    @can_edit = SmallConcert.find(:first, :conditions => ["year = ? and month = ?", year, month])
   end
 
   # GET /small_concert_bands/new
@@ -62,16 +53,6 @@ class SmallConcertBandsController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @small_concert_band.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /small_concert_bands/1
-  # DELETE /small_concert_bands/1.json
-  def destroy
-    @small_concert_band.destroy
-    respond_to do |format|
-      format.html { redirect_to small_concert_bands_url }
-      format.json { head :no_content }
     end
   end
 

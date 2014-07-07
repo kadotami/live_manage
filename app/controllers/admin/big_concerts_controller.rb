@@ -7,11 +7,6 @@ class Admin::BigConcertsController < AdminController
     @big_concerts = BigConcert.order("id DESC")
   end
 
-  # GET /big_concerts/1
-  # GET /big_concerts/1.json
-  def show
-  end
-
   # GET /big_concerts/new
   def new
     @big_concert = BigConcert.new
@@ -28,7 +23,7 @@ class Admin::BigConcertsController < AdminController
 
     respond_to do |format|
       if @big_concert.save
-        format.html { redirect_to @big_concert, notice: 'Big concert was successfully created.' }
+        format.html { redirect_to '/admin/big_concerts', notice: 'Big concert was successfully created.' }
         format.json { render action: 'show', status: :created, location: @big_concert }
       else
         format.html { render action: 'new' }
@@ -42,7 +37,7 @@ class Admin::BigConcertsController < AdminController
   def update
     respond_to do |format|
       if @big_concert.update(big_concert_params)
-        format.html { redirect_to @big_concert, notice: 'Big concert was successfully updated.' }
+        format.html { redirect_to '/admin/big_concerts', notice: 'Big concert was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +51,7 @@ class Admin::BigConcertsController < AdminController
   def destroy
     @big_concert.destroy
     respond_to do |format|
-      format.html { redirect_to big_concerts_url }
+      format.html { redirect_to '/admin/big_concerts/' }
       format.json { head :no_content }
     end
   end

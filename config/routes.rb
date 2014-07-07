@@ -1,29 +1,13 @@
 Wuk::Application.routes.draw do
   root :to => "sessions#new"
   get "top/index"
-  resources :big_concert_bands do
-    collection do
-      get :list
-    end
-  end
+  resources :big_concert_bands
 
-  resources :small_concert_bands do
-    collection do
-      get :list
-    end
-  end
+  resources :small_concert_bands
 
-  resources :big_concerts do
-    collection do
-      get :all
-    end
-  end
+  resources :big_concerts
 
-  resources :small_concerts do
-    collection do
-      get :all
-    end
-  end
+  resources :small_concerts
 
   namespace :admin do
     get "top/index"

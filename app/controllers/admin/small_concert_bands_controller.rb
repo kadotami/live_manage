@@ -11,12 +11,6 @@ class Admin::SmallConcertBandsController < AdminController
                                           .where(month: month).load
   end
 
-  # GET /small_concert_bands/1
-  # GET /small_concert_bands/1.json
-  def show
-    @title = "申請バンド情報"
-  end
-
   # GET /small_concert_bands/1/edit
   def edit
   end
@@ -26,7 +20,7 @@ class Admin::SmallConcertBandsController < AdminController
   def update
     respond_to do |format|
       if @small_concert_band.update(small_concert_band_params)
-        format.html { redirect_to @small_concert_band, notice: 'Small concert band was successfully updated.' }
+        format.html { redirect_to '/admin/small_concert_bands?year='+@small_concert_band.year.to_s+'&month='+@small_concert_band.month.to_s, notice: 'Small concert band was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

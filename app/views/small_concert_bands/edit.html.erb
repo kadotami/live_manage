@@ -1,6 +1,57 @@
-<h1>Editing small_concert_band</h1>
+<%= form_for(@small_concert_band) do |f| %>
+  <% if @small_concert_band.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@small_concert_band.errors.count, "error") %> prohibited this small_concert_band from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @small_concert_band.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @small_concert_band %> |
-<%= link_to 'Back', small_concert_bands_path %>
+  <div class="field">
+    <input name="small_concert_band[name]" type="text" placeholder="バンド名">
+  </div>
+  <div class="field">
+    <input name="small_concert_band[song]" type="text" placeholder="曲名">
+  </div>
+  <div class="field">
+    <input name="small_concert_band[leader]" type="text" placeholder="リーダー">
+  </div>
+  <div class="field">
+    <input name="small_concert_band[vo]" type="text" placeholder="Vo">
+  </div>
+  <div class="field">
+    <input name="small_concert_band[gt1]" type="text" placeholder="Gt1">
+  </div>
+  <div class="field">
+    <input name="small_concert_band[gt2]" type="text" placeholder="Gt2">
+  </div>
+  <div class="field">
+    <input name="small_concert_band[ba]" type="text" placeholder="Ba">
+  </div>
+  <div class="field">
+    <input name="small_concert_band[dr]" type="text" placeholder="Dr">
+  </div>
+  <div class="field">
+    <input name="small_concert_band[key]" type="text" placeholder="Key">
+  </div>
+  <div class="field check">
+    <label>1週目</label>
+    <%= f.check_box :week1 %>
+  </div>
+  <div class="field check">
+    <label>2周目</label>
+    <%= f.check_box :week2 %>
+  </div>
+  <div class="field">
+    <label>備考</label><br>
+    <textarea name="small_concert_band[description]"></textarea>
+  </div>
+  <div class="actions">
+    <input name="commit" type="submit" value="上書き">
+  </div>
+<% end %>
+

@@ -8,11 +8,6 @@ class Admin::SmallConcertsController < AdminController
     @title = "教室ライブ一覧"
   end
 
-  # GET /small_concerts/1
-  # GET /small_concerts/1.json
-  def show
-  end
-
   # GET /small_concerts/new
   def new
     @title = "教室ライブ作成"
@@ -30,7 +25,7 @@ class Admin::SmallConcertsController < AdminController
 
     respond_to do |format|
       if @small_concert.save
-        format.html { redirect_to @small_concert, notice: 'Small concert was successfully created.' }
+        format.html { redirect_to '/admin/small_concerts', notice: 'Small concert was successfully created.' }
         format.json { render action: 'show', status: :created, location: @small_concert }
       else
         format.html { render action: 'new' }
@@ -44,7 +39,7 @@ class Admin::SmallConcertsController < AdminController
   def update
     respond_to do |format|
       if @small_concert.update(small_concert_params)
-        format.html { redirect_to @small_concert, notice: 'Small concert was successfully updated.' }
+        format.html { redirect_to '/admin/small_concerts', notice: 'Small concert was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

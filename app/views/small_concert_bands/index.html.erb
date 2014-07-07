@@ -1,48 +1,24 @@
-<h1>Listing small_concert_bands</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Song</th>
-      <th>Leader</th>
-      <th>Vo</th>
-      <th>Gt1</th>
-      <th>Gt2</th>
-      <th>Ba</th>
-      <th>Dr</th>
-      <th>Key</th>
-      <th>Week1</th>
-      <th>Week2</th>
-      <th>Description</th>
-      <th>Year</th>
-      <th>Month</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @small_concert_bands.each do |small_concert_band| %>
-      <tr>
-        <td><%= small_concert_band.name %></td>
-        <td><%= small_concert_band.song %></td>
-        <td><%= small_concert_band.leader %></td>
-        <td><%= small_concert_band.vo %></td>
-        <td><%= small_concert_band.gt1 %></td>
-        <td><%= small_concert_band.gt2 %></td>
-        <td><%= small_concert_band.ba %></td>
-        <td><%= small_concert_band.dr %></td>
-        <td><%= small_concert_band.key %></td>
-        <td><%= small_concert_band.week1 %></td>
-        <td><%= small_concert_band.week2 %></td>
-        <td><%= small_concert_band.description %></td>
-        <td><%= small_concert_band.year %></td>
-        <td><%= small_concert_band.month %></td>
-        <td><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></td>
-        <td><%= link_to '削除', small_concert_band, method: :delete, data: { confirm: 'ほんとに?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= javascript_include_tag "accordion" %>
+<div id="accordion" class="accordion">
+  <% @small_concert_bands.each do |small_concert_band| %>
+    <h3><%= small_concert_band.name %></h3>
+    <dl>
+      <dt>曲：<%= small_concert_band.song %></dt>
+      <dt>リーダー：<%= small_concert_band.leader %></dt>
+      <dt>Vo:<%= small_concert_band.vo %></dt>
+      <dt>Gt1：<%= small_concert_band.gt1 %></dt>
+      <dt>Gt2：<%= small_concert_band.gt2 %></dt>
+      <dt>Ba:<%= small_concert_band.ba %></dt>
+      <dt>Dr：<%= small_concert_band.dr %></dt>
+      <dt>Key：<%= small_concert_band.key %></dt>
+      <dt>
+        1周目:<%= marubatu(small_concert_band.week1) %>
+        2周目:<%= marubatu(small_concert_band.week2) %>
+      </dt>
+      <dt>備考:<%= small_concert_band.description %></dt>
+      <% if @can_edit.can_edit %>
+        <dt><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></dt>
+      <% end %>
+    </dl>
+  <% end %>
+</div>

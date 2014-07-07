@@ -1,0 +1,45 @@
+ja:
+  activerecord:
+    models:
+      big_concert: コン
+      big_concert_band: コン申請バンド
+      small_concert: 教室ライブ
+      small_concert_band: 教室ライブ申請バンド
+    attributes:
+      big_concert:
+        year: 年
+        season: 季節
+      big_concert_band:
+        name: バンド名
+        leader: リーダー
+        vo: ボーカル
+        gt1: ギター１
+        gt2: ギター２
+        ba: ベース
+        dr: ドラム
+        key: キーボード
+        day1: 1日目
+        day2: 2日目
+        day3: 3日目
+        day4: 4日目
+        description: 備考
+        year: 年
+        season: 季節
+      small_concert:
+        year: 年
+        month: 月
+      small_concert_band:
+        name: バンド名
+        song: 曲名
+        leader: リーダー
+        vo: ボーカル
+        gt1: ギター１
+        gt2: ギター２
+        ba: ベース
+        dr: ドラム
+        key: キーボード
+        week1: 1週目
+        week2: 2週目
+        description: 備考
+        year: 年
+        month: 月

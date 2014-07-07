@@ -45,8 +45,8 @@
           <%end%>
         </td>
         <td class='description'><%= small_concert_band.description %></td>
-        <td><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></td>
-        <td><%= link_to '削除', small_concert_band, method: :delete, data: { confirm: 'ほんとに?' } %></td>
+        <td><a href="/admin/small_concert_bands/<%=small_concert_band.id%>/edit">編集</a></td>
+        <td><a data-confirm="Are you sure?" data-method="delete" href="/admin/small_concert_bands/<%=small_concert_band.id%>" rel="nofollow">削除</a></td>
       </tr>
     <% end %>
   </tbody>

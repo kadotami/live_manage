@@ -4,21 +4,13 @@ class BigConcertBandsController < ApplicationController
   # GET /big_concert_bands
   # GET /big_concert_bands.json
   def index
-    @big_concert_bands = BigConcertBand.all
-  end
-
-  def list
     year = params[:year]
     season_param = params[:season]
     season = season_string(season_param.to_i)
     @title = year.to_s + "年" + season + "コン"
-    @big_concert_bands = BigConcertBand.where(year: year)
-                                          .where(season: season_param).load
-  end
+    @big_concert_bands = BigConcertBand.where(year: year).where(season: season_param).load
+    @can_edit = BigConcert.find(:first, :conditions => ["year = ? and season = ?", year, season_param])
 
-  # GET /big_concert_bands/1
-  # GET /big_concert_bands/1.json
-  def show
   end
 
   # GET /big_concert_bands/new
@@ -42,7 +34,7 @@ class BigConcertBandsController < ApplicationController
     @big_concert_band.season = last_concert.season
     respond_to do |format|
       if @big_concert_band.save
-        format.html { redirect_to @big_concert_band, notice: 'Big concert band was successfully created.' }
+        format.html { redirect_to '/big_concert_bands/?year='+last_concert.year.to_s+'&season='+last_concert.season.to_s, notice: 'Big concert band was successfully created.' }
         format.json { render action: 'show', status: :created, location: @big_concert_band }
       else
         format.html { render action: 'new' }
@@ -54,24 +46,20 @@ class BigConcertBandsController < ApplicationController
   # PATCH/PUT /big_concert_bands/1
   # PATCH/PUT /big_concert_bands/1.json
   def update
+    year = @big_concert_band.year
+    season = @big_concert_band.season
+    can_edit = BigConcert.find(:first, :conditions => ["year = ? and season = ?", year, season])
+    if !can_edit.can_edit
+      redirect_to '/top/index'
+    end
     respond_to do |format|
       if @big_concert_band.update(big_concert_band_params)
-        format.html { redirect_to @big_concert_band, notice: 'Big concert band was successfully updated.' }
+        format.html { redirect_to '/big_concert_bands/?year='+year.to_s+'&season='+season.to_s, notice: 'Big concert band was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
         format.json { render json: @big_concert_band.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /big_concert_bands/1
-  # DELETE /big_concert_bands/1.json
-  def destroy
-    @big_concert_band.destroy
-    respond_to do |format|
-      format.html { redirect_to big_concert_bands_url }
-      format.json { head :no_content }
     end
   end
 

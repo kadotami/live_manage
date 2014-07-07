@@ -18,11 +18,6 @@ class Admin::BigConcertBandsController < AdminController
                                           .where(season: season_param).load
   end
 
-  # GET /big_concert_bands/1
-  # GET /big_concert_bands/1.json
-  def show
-  end
-
   # GET /big_concert_bands/1/edit
   def edit
   end
@@ -45,9 +40,11 @@ class Admin::BigConcertBandsController < AdminController
   # DELETE /big_concert_bands/1
   # DELETE /big_concert_bands/1.json
   def destroy
+    year = @big_concert_band.year
+    season = @big_concert_band.season
     @big_concert_band.destroy
     respond_to do |format|
-      format.html { redirect_to 'admin/big_concerts' }
+      format.html { redirect_to 'admin/big_concert_bands?year='+year.to_s+"&season="+season.to_s }
       format.json { head :no_content }
     end
   end
