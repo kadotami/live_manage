@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         redirect_to '/top/index'
       end
     else
-      render 'new'
+      redirect_to '/'
     end
   end
 
