@@ -4,19 +4,19 @@
     <h3><%= big_concert_band.name %></h3>
     <dl>
       <dt>リーダー：<%= big_concert_band.leader %></dt>
-      <dt>Vo:<%= big_concert_band.vo %></dt>
+      <dt>Vo：<%= big_concert_band.vo %></dt>
       <dt>Gt1：<%= big_concert_band.gt1 %></dt>
       <dt>Gt2：<%= big_concert_band.gt2 %></dt>
-      <dt>Ba:<%= big_concert_band.ba %></dt>
+      <dt>Ba：<%= big_concert_band.ba %></dt>
       <dt>Dr：<%= big_concert_band.dr %></dt>
       <dt>Key：<%= big_concert_band.key %></dt>
       <dt>
-        1日目:<%= marubatu(big_concert_band.day1) %>
-        2日目:<%= marubatu(big_concert_band.day2) %>
-        3日目:<%= marubatu(big_concert_band.day3) %>
-        4日目:<%= marubatu(big_concert_band.day4) %>
+        1日目：<%= marubatu(big_concert_band.day1) %>
+        2日目：<%= marubatu(big_concert_band.day2) %>
+        3日目：<%= marubatu(big_concert_band.day3) %>
+        4日目：<%= marubatu(big_concert_band.day4) %>
       </dt>
-      <dt>備考:<%= big_concert_band.description %></dt>
+      <dt>備考：<%= big_concert_band.description %></dt>
       <% if @can_edit.can_edit %>
         <dt><%= link_to '編集', edit_big_concert_band_path(big_concert_band) %></dt>
       <% end %>

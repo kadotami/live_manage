@@ -1,0 +1,16 @@
+@import "setting";
+#concert-list {
+  li {
+    width: 100%;
+    background: $sub-color;
+    margin: 5px 0;
+    padding: 5px;
+    color: #666;
+    a:visited {
+      color: #666;
+    }
+    a:link {
+      color: #666;
+    }
+  }
+}

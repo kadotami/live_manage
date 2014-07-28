@@ -8,14 +8,14 @@
       <dt>Vo:<%= small_concert_band.vo %></dt>
       <dt>Gt1：<%= small_concert_band.gt1 %></dt>
       <dt>Gt2：<%= small_concert_band.gt2 %></dt>
-      <dt>Ba:<%= small_concert_band.ba %></dt>
+      <dt>Ba：<%= small_concert_band.ba %></dt>
       <dt>Dr：<%= small_concert_band.dr %></dt>
       <dt>Key：<%= small_concert_band.key %></dt>
       <dt>
-        1周目:<%= marubatu(small_concert_band.week1) %>
-        2周目:<%= marubatu(small_concert_band.week2) %>
+        1周目：<%= marubatu(small_concert_band.week1) %>
+        2周目：<%= marubatu(small_concert_band.week2) %>
       </dt>
-      <dt>備考:<%= small_concert_band.description %></dt>
+      <dt>備考：<%= small_concert_band.description %></dt>
       <% if @can_edit.can_edit %>
         <dt><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></dt>
       <% end %>

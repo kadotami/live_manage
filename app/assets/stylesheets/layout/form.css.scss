@@ -1,5 +1,7 @@
+@import "setting";
 .field {
-  input[type="text"],input[type="password"],textarea {
+  color: #fff;
+  label,input[type="text"],input[type="password"],textarea {
     width: 90%;
     margin: 20px 5%;
     height: 30px;
@@ -12,15 +14,53 @@
   float: left;
   text-align: center;
   margin: 20px 0;
+  line-height: 44px;
+  input {
+    width: 30px;
+    height: 30px;
+    -webkit-appearance: none;
+    color: #fff;
+    background: #fff;
+  }
+  input[type="checkbox"]:checked {
+    position: relative;
+  }
+  input[type="checkbox"]:checked:before {
+    position: absolute;
+    left: 1px;
+    top: 17px;
+    display: block;
+    content: "";
+    width: 10px;
+    height: 4px;
+    background: #000;
+    -webkit-transform: rotate(45deg);
+    -webkit-transform-origin: right center;
+}
+
+input[type="checkbox"]:checked:after {
+    display: block;
+    position: absolute;
+    left: 9px;
+    top: 17px;
+    content: "";
+    width: 19px;
+    height: 4px;
+    background: #000;
+    -webkit-transform: rotate(-53deg);
+    -webkit-transform-origin: left center;
+}
 }
 
 .actions {
   input.btn {
+    -webkit-appearance: none;
     width: 90%;
     font-size: 20px;
     margin: 20px 5%;
     border-style: none;
     padding: 10px;
-    background: #c0c0ff;
+    background: $sub-color;
+    color: #666;
   }
 }
