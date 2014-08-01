@@ -13,7 +13,7 @@ module ApplicationHelper
     if bool
       "◯"
     else
-      "☓"
+      "X"
     end
   end
 end

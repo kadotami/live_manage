@@ -16,7 +16,7 @@ class SmallConcertBandsController < ApplicationController
   def new
     last_concert = SmallConcert.last
     if !last_concert.can_edit
-      redirect_to '/top/error'
+      render :template => "errors/reject", :status => 404, :layout => 'application', :content_type => 'text/html'
     end
     @title = last_concert.year.to_s+"年"+ last_concert.month.to_s + "月教室ライブ申請"
     @small_concert_band = SmallConcertBand.new

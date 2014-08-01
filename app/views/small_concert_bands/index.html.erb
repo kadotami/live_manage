@@ -2,7 +2,7 @@
 <div id="accordion" class="accordion">
   <% @small_concert_bands.each do |small_concert_band| %>
     <h3><%= small_concert_band.name %></h3>
-    <dl>
+    <dl class="hide">
       <dt>曲：<%= small_concert_band.song %></dt>
       <dt>リーダー：<%= small_concert_band.leader %></dt>
       <dt>Vo:<%= small_concert_band.vo %></dt>

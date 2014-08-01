@@ -18,7 +18,7 @@ class BigConcertBandsController < ApplicationController
     last_concert = BigConcert.last
     season = season_string(last_concert.season)
     if !last_concert.can_edit
-      redirect_to '/top/error'
+      render :template => "errors/reject", :status => 404, :layout => 'application', :content_type => 'text/html'
     end
     @title = last_concert.year.to_s + "年" + season + "コン申請"
     @big_concert_band = BigConcertBand.new
