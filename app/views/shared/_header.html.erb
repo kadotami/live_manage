@@ -1,9 +1,9 @@
 <div id="header">
   <% if signed_in? %>
-    <a class='h_left' href="/top/index">トップへ</a>
+    <a class='h_left' href="/top/index" style="font-size:11px;">トップへ</a>
   <% end %>
-  <h2><%= @title %></h2>
+  <h4><%= @title %></h4>
   <% if signed_in? %>
-    <a class='h_right' href="/signout">Sign Out</a>
+    <a class='h_right' href="/signout" style="font-size:11px;">Sign Out</a>
   <% end %>
 </div>

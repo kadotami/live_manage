@@ -15,12 +15,16 @@ class SmallConcertBandsController < ApplicationController
   # GET /small_concert_bands/new
   def new
     last_concert = SmallConcert.last
+    if !last_concert.can_edit
+      redirect_to '/top/error'
+    end
     @title = last_concert.year.to_s+"年"+ last_concert.month.to_s + "月教室ライブ申請"
     @small_concert_band = SmallConcertBand.new
   end
 
   # GET /small_concert_bands/1/edit
   def edit
+    @small_concert_band = SmallConcertBand.find(params[:id])
   end
 
   # POST /small_concert_bands
@@ -33,8 +37,7 @@ class SmallConcertBandsController < ApplicationController
 
     respond_to do |format|
       if @small_concert_band.save
-        format.html { redirect_to @small_concert_band, notice: 'Small concert band was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @small_concert_band }
+        format.html { redirect_to '/small_concert_bands/?year='+last_concert.year.to_s+'&month='+last_concert.month.to_s, notice: 'Small concert band was successfully created.' }
       else
         format.html { render action: 'new' }
         format.json { render json: @small_concert_band.errors, status: :unprocessable_entity }

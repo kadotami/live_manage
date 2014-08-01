@@ -12,31 +12,31 @@
   <% end %>
 
   <div class="field">
-    <input name="small_concert_band[name]" type="text" placeholder="バンド名">
+    <input name="small_concert_band[name]" type="text" placeholder="バンド名" value=<%=@small_concert_band.name%> >
   </div>
   <div class="field">
-    <input name="small_concert_band[song]" type="text" placeholder="曲名">
+    <input name="small_concert_band[song]" type="text" placeholder="曲名" value=<%=@small_concert_band.song%> >
   </div>
   <div class="field">
-    <input name="small_concert_band[leader]" type="text" placeholder="リーダー">
+    <input name="small_concert_band[leader]" type="text" placeholder="リーダー" value=<%=@small_concert_band.leader%> >
   </div>
   <div class="field">
-    <input name="small_concert_band[vo]" type="text" placeholder="Vo">
+    <input name="small_concert_band[vo]" type="text" placeholder="Vo" value=<%=@small_concert_band.vo%> >
   </div>
   <div class="field">
-    <input name="small_concert_band[gt1]" type="text" placeholder="Gt1">
+    <input name="small_concert_band[gt1]" type="text" placeholder="Gt1" value=<%=@small_concert_band.gt1%> >
   </div>
   <div class="field">
-    <input name="small_concert_band[gt2]" type="text" placeholder="Gt2">
+    <input name="small_concert_band[gt2]" type="text" placeholder="Gt2" value=<%=@small_concert_band.gt2%> >
   </div>
   <div class="field">
-    <input name="small_concert_band[ba]" type="text" placeholder="Ba">
+    <input name="small_concert_band[ba]" type="text" placeholder="Ba" value=<%=@small_concert_band.ba%> >
   </div>
   <div class="field">
-    <input name="small_concert_band[dr]" type="text" placeholder="Dr">
+    <input name="small_concert_band[dr]" type="text" placeholder="Dr" value=<%=@small_concert_band.dr%> >
   </div>
   <div class="field">
-    <input name="small_concert_band[key]" type="text" placeholder="Key">
+    <input name="small_concert_band[key]" type="text" placeholder="Key" value=<%=@small_concert_band.key%> >
   </div>
   <div class="field check">
     <label>1週目</label>
@@ -48,7 +48,7 @@
   </div>
   <div class="field">
     <label>備考</label><br>
-    <textarea name="small_concert_band[description]"></textarea>
+    <textarea name="small_concert_band[description]"><%= @small_concert_band.gt2 %></textarea>
   </div>
   <div class="actions">
     <input class="btn" name="commit" type="submit" value="上書き">

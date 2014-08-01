@@ -17,12 +17,16 @@ class BigConcertBandsController < ApplicationController
   def new
     last_concert = BigConcert.last
     season = season_string(last_concert.season)
+    if !last_concert.can_edit
+      redirect_to '/top/error'
+    end
     @title = last_concert.year.to_s + "年" + season + "コン申請"
     @big_concert_band = BigConcertBand.new
   end
 
   # GET /big_concert_bands/1/edit
   def edit
+    @big_concert_band = BigConcertBand.find(params[:id])
   end
 
   # POST /big_concert_bands
@@ -35,7 +39,6 @@ class BigConcertBandsController < ApplicationController
     respond_to do |format|
       if @big_concert_band.save
         format.html { redirect_to '/big_concert_bands/?year='+last_concert.year.to_s+'&season='+last_concert.season.to_s, notice: 'Big concert band was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @big_concert_band }
       else
         format.html { render action: 'new' }
         format.json { render json: @big_concert_band.errors, status: :unprocessable_entity }
