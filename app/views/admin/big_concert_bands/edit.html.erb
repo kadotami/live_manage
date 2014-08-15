@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="field">
-    <input name="big_concert_band[name]" type="text" placeholder="バンド名">
+    <input name="big_concert_band[name]" type="text" placeholder="バンド名" value=<%=@big_concert_band.name%> >
   </div>
   <div class="field">
-    <input name="big_concert_band[leader]" type="text" placeholder="リーダー">
+    <input name="big_concert_band[leader]" type="text" placeholder="リーダー" value=<%=@big_concert_band.leader%> >
   </div>
   <div class="field">
-    <input name="big_concert_band[vo]" type="text" placeholder="Vo">
+    <input name="big_concert_band[vo]" type="text" placeholder="Vo" value=<%=@big_concert_band.vo%> >
   </div>
   <div class="field">
-    <input name="big_concert_band[gt1]" type="text" placeholder="Gt1">
+    <input name="big_concert_band[gt1]" type="text" placeholder="Gt1" value=<%=@big_concert_band.gt1%> >
   </div>
   <div class="field">
-    <input name="big_concert_band[gt2]" type="text" placeholder="Gt2">
+    <input name="big_concert_band[gt2]" type="text" placeholder="Gt2" value=<%=@big_concert_band.gt2%> >
   </div>
   <div class="field">
-    <input name="big_concert_band[ba]" type="text" placeholder="Ba">
+    <input name="big_concert_band[ba]" type="text" placeholder="Ba" value=<%=@big_concert_band.ba%> >
   </div>
   <div class="field">
-    <input name="big_concert_band[dr]" type="text" placeholder="Dr">
+    <input name="big_concert_band[dr]" type="text" placeholder="Dr" value=<%=@big_concert_band.dr%> >
   </div>
   <div class="field">
-    <input name="big_concert_band[key]" type="text" placeholder="Key">
+    <input name="big_concert_band[key]" type="text" placeholder="Key" value=<%=@big_concert_band.key%> >
   </div>
   <div class="field check">
     <label>1日目</label>
@@ -53,9 +53,9 @@
   </div>
   <div class="field">
     <label>備考</label><br>
-    <textarea name="big_concert_band[description]"></textarea>
+    <textarea name="big_concert_band[description]"><%=@big_concert_band.description%></textarea>
   </div>
   <div class="actions">
-    <input name="commit" type="submit" value="申請">
+    <input class="btn" name="commit" type="submit" value="上書き">
   </div>
 <% end %>

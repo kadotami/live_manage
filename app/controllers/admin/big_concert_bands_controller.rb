@@ -20,6 +20,7 @@ class Admin::BigConcertBandsController < AdminController
 
   # GET /big_concert_bands/1/edit
   def edit
+    @big_concert_band = BigConcertBand.find(params[:id])
   end
 
 

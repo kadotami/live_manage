@@ -4,7 +4,7 @@ class Admin::SmallConcertsController < AdminController
   # GET /small_concerts
   # GET /small_concerts.json
   def index
-    @small_concerts = SmallConcert.all
+    @small_concerts = SmallConcert.order("id DESC")
     @title = "教室ライブ一覧"
   end
 
@@ -16,6 +16,7 @@ class Admin::SmallConcertsController < AdminController
 
   # GET /small_concerts/1/edit
   def edit
+    @small_concert = SmallConcert.find(params[:id])
   end
 
   # POST /small_concerts
@@ -53,7 +54,7 @@ class Admin::SmallConcertsController < AdminController
   def destroy
     @small_concert.destroy
     respond_to do |format|
-      format.html { redirect_to small_concerts_url }
+      format.html { redirect_to '/admin/small_concerts' }
       format.json { head :no_content }
     end
   end

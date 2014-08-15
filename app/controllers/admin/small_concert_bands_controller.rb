@@ -13,6 +13,7 @@ class Admin::SmallConcertBandsController < AdminController
 
   # GET /small_concert_bands/1/edit
   def edit
+    @small_concert_band = SmallConcertBand.find(params[:id])
   end
 
   # PATCH/PUT /small_concert_bands/1
