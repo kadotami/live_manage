@@ -1,7 +1,7 @@
 Wuk::Application.routes.draw do
   root :to => "sessions#new"
-  get "top/index"
-  get "top/error"
+  get "/top", to: 'top#index'
+  get "/error", to: 'top#error'
   resources :big_concert_bands
 
   resources :small_concert_bands
@@ -11,7 +11,7 @@ Wuk::Application.routes.draw do
   resources :small_concerts
 
   namespace :admin do
-    get "top/index"
+    get "/" , to: 'top#index'
     resources :small_concerts
     resources :small_concert_bands do
       collection do

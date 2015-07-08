@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    @title = "ログイン"
+    @title = "login"
     if signed_in?
       redirect_to '/top/index'
     end
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       sign_in user
       if user.role_flag
-        redirect_to '/admin/top/index'
+        redirect_to '/admin/'
       else
         redirect_to '/top/index'
       end
