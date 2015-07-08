@@ -1,25 +1,35 @@
-<%= javascript_include_tag "accordion" %>
 <div id="accordion" class="accordion">
   <% @big_concert_bands.each do |big_concert_band| %>
-    <h3><%= big_concert_band.name %></h3>
-    <dl class='hide'>
-      <dt>リーダー：<%= big_concert_band.leader %></dt>
-      <dt>Vo：<%= big_concert_band.vo %></dt>
-      <dt>Gt1：<%= big_concert_band.gt1 %></dt>
-      <dt>Gt2：<%= big_concert_band.gt2 %></dt>
-      <dt>Ba：<%= big_concert_band.ba %></dt>
-      <dt>Dr：<%= big_concert_band.dr %></dt>
-      <dt>Key：<%= big_concert_band.key %></dt>
-      <dt>
-        1日目：<%= marubatu(big_concert_band.day1) %>
-        2日目：<%= marubatu(big_concert_band.day2) %>
-        3日目：<%= marubatu(big_concert_band.day3) %>
-        4日目：<%= marubatu(big_concert_band.day4) %>
-      </dt>
-      <dt>備考：<%= big_concert_band.description %></dt>
-      <% if @can_edit.can_edit %>
-        <dt><%= link_to '編集', edit_big_concert_band_path(big_concert_band) %></dt>
-      <% end %>
-    </dl>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal<%= big_concert_band.id %>"><%= big_concert_band.name %></a>
+
+    <div id="modal<%= big_concert_band.id %>" class="modal">
+      <div class="modal-content">
+        <dt>リーダー：<%= big_concert_band.leader %></dt>
+        <dt>Vo：<%= big_concert_band.vo %></dt>
+        <dt>Gt1：<%= big_concert_band.gt1 %></dt>
+        <dt>Gt2：<%= big_concert_band.gt2 %></dt>
+        <dt>Ba：<%= big_concert_band.ba %></dt>
+        <dt>Dr：<%= big_concert_band.dr %></dt>
+        <dt>Key：<%= big_concert_band.key %></dt>
+        <dt>
+          1日目：<%= marubatu(big_concert_band.day1) %>
+          2日目：<%= marubatu(big_concert_band.day2) %>
+          3日目：<%= marubatu(big_concert_band.day3) %>
+          4日目：<%= marubatu(big_concert_band.day4) %>
+        </dt>
+        <dt>備考：<%= big_concert_band.description %></dt>
+        <% if @can_edit.can_edit %>
+          <dt><%= link_to '編集', edit_big_concert_band_path(big_concert_band) %></dt>
+        <% end %>
+      </div>
+    </div>
   <% end %>
+  <script>
+  $(document).ready(function(){
+    $('.modal-trigger').leanModal({
+      dismissible: true, 
+      opacity: .5
+    });
+  });
+  </script>
 </div>

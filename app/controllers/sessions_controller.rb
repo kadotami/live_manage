@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new
     @title = "login"
     if signed_in?
-      redirect_to '/top/index'
+      redirect_to '/'
     end
   end
 
@@ -13,10 +13,10 @@ class SessionsController < ApplicationController
       if user.role_flag
         redirect_to '/admin/'
       else
-        redirect_to '/top/index'
+        redirect_to '/'
       end
     else
-      redirect_to '/'
+      redirect_to '/sessions/new'
     end
   end
 

@@ -53,7 +53,7 @@ class BigConcertBandsController < ApplicationController
     season = @big_concert_band.season
     can_edit = BigConcert.find(:first, :conditions => ["year = ? and season = ?", year, season])
     if !can_edit.can_edit
-      redirect_to '/top/index'
+      redirect_to '/'
     end
     respond_to do |format|
       if @big_concert_band.update(big_concert_band_params)

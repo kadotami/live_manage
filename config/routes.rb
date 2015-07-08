@@ -1,6 +1,5 @@
 Wuk::Application.routes.draw do
-  root :to => "sessions#new"
-  get "/top", to: 'top#index'
+  root :to => "top#index"
   get "/error", to: 'top#error'
   resources :big_concert_bands
 
