@@ -1,57 +1,68 @@
-<%= form_for(@small_concert_band) do |f| %>
-  <% if @small_concert_band.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@small_concert_band.errors.count, "error") %> prohibited this small_concert_band from being saved:</h2>
+<div class="form">
+  <%= form_for(@small_concert_band) do |f| %>
+    <% if @small_concert_band.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@small_concert_band.errors.count, "error") %> prohibited this small_concert_band from being saved:</h2>
 
-      <ul>
-      <% @small_concert_band.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @small_concert_band.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="input-field">
+      <input id="band_name" name="small_concert_band[name]" type="text">
+      <label for="band_name">バンド名</label>
+    </div>
+    <div class="input-field">
+      <input id="band_song" name="small_concert_band[song]" type="text">
+      <label for="band_song">曲名</label>
+    </div>
+    <div class="input-field">
+      <input id="band_leader" name="small_concert_band[leader]" type="text">
+      <label for="band_leader">リーダー</label>
+    </div>
+    <div class="input-field">
+      <input id="vo" name="small_concert_band[vo]" type="text">
+      <label for="vo">Vo</label>
+    </div>
+    <div class="input-field">
+      <input id="gt1" name="small_concert_band[gt1]" type="text">
+      <label for="gt1">Gt1</label>
+    </div>
+    <div class="input-field">
+      <input id="gt2" name="small_concert_band[gt2]" type="text">
+      <label for="gt2">Gt2</label>
+    </div>
+    <div class="input-field">
+      <input id="ba" name="small_concert_band[ba]" type="text">
+      <label for="ba">Ba</label>
+    </div>
+    <div class="input-field">
+      <input id="dr" name="small_concert_band[dr]" type="text">
+      <label for="dr">Dr</label>
+    </div>
+    <div class="input-field">
+      <input id="key" name="small_concert_band[key]" type="text">
+      <label for="key">Key</label>
+    </div>
+    <div class="field check">
+      <%= f.check_box :week1 %>
+      <label for="small_concert_band_week1">1週目</label>
+    </div>
+    <div class="field check">
+      <%= f.check_box :week2 %>
+      <label for="small_concert_band_week2">2周目</label>
+    </div>
+    <div class="clear-both"></div>
+    <div class="input-field">
+      <label>備考</label><br>
+      <textarea class="materialize-textarea" name="small_concert_band[description]"></textarea>
+    </div>
+    <div class="actions">
+      <input class="btn" name="commit" type="submit" value="申請">
     </div>
   <% end %>
-
-  <div class="field">
-    <input name="small_concert_band[name]" type="text" placeholder="バンド名">
-  </div>
-  <div class="field">
-    <input name="small_concert_band[song]" type="text" placeholder="曲名">
-  </div>
-  <div class="field">
-    <input name="small_concert_band[leader]" type="text" placeholder="リーダー">
-  </div>
-  <div class="field">
-    <input name="small_concert_band[vo]" type="text" placeholder="Vo">
-  </div>
-  <div class="field">
-    <input name="small_concert_band[gt1]" type="text" placeholder="Gt1">
-  </div>
-  <div class="field">
-    <input name="small_concert_band[gt2]" type="text" placeholder="Gt2">
-  </div>
-  <div class="field">
-    <input name="small_concert_band[ba]" type="text" placeholder="Ba">
-  </div>
-  <div class="field">
-    <input name="small_concert_band[dr]" type="text" placeholder="Dr">
-  </div>
-  <div class="field">
-    <input name="small_concert_band[key]" type="text" placeholder="Key">
-  </div>
-  <div class="field check">
-    <label>1週目</label>
-    <%= f.check_box :week1 %>
-  </div>
-  <div class="field check">
-    <label>2周目</label>
-    <%= f.check_box :week2 %>
-  </div>
-  <div class="field">
-    <label>備考</label><br>
-    <textarea name="small_concert_band[description]"></textarea>
-  </div>
-  <div class="actions">
-    <input class="btn" name="commit" type="submit" value="申請">
-  </div>
-<% end %>
-
+</div>

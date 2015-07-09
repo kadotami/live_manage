@@ -1,6 +1,6 @@
 <div class="logo">
 </div>
-<div class="login">
+<div class="login form">
     <%= form_for(:session, url: sessions_path) do |f| %>
 
     <div class="input-field">
@@ -12,7 +12,7 @@
       <label for="session_password">パスワード</label>
     </div>
       <div class="actions">
-        <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+        <%= f.submit "Login", class: "btn btn-large btn-primary" %>
       </div>
     <% end %>
   </div>

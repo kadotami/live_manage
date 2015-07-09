@@ -1,27 +1,30 @@
-<div id="accordion" class="accordion">
+<div class="band-list">
   <% @big_concert_bands.each do |big_concert_band| %>
     <a class="waves-effect waves-light btn modal-trigger" href="#modal<%= big_concert_band.id %>"><%= big_concert_band.name %></a>
 
-    <div id="modal<%= big_concert_band.id %>" class="modal">
+    <div id="modal<%= big_concert_band.id %>" class="modal modal-fixed-footer">
       <div class="modal-content">
-        <dt>リーダー：<%= big_concert_band.leader %></dt>
-        <dt>Vo：<%= big_concert_band.vo %></dt>
-        <dt>Gt1：<%= big_concert_band.gt1 %></dt>
-        <dt>Gt2：<%= big_concert_band.gt2 %></dt>
-        <dt>Ba：<%= big_concert_band.ba %></dt>
-        <dt>Dr：<%= big_concert_band.dr %></dt>
-        <dt>Key：<%= big_concert_band.key %></dt>
-        <dt>
-          1日目：<%= marubatu(big_concert_band.day1) %>
-          2日目：<%= marubatu(big_concert_band.day2) %>
-          3日目：<%= marubatu(big_concert_band.day3) %>
-          4日目：<%= marubatu(big_concert_band.day4) %>
-        </dt>
-        <dt>備考：<%= big_concert_band.description %></dt>
-        <% if @can_edit.can_edit %>
-          <dt><%= link_to '編集', edit_big_concert_band_path(big_concert_band) %></dt>
-        <% end %>
+        <h4><%= big_concert_band.name %></h4>
+        <li>Leader：<%= big_concert_band.leader %></li>
+        <li>Vo    ：<%= big_concert_band.vo %></li>
+        <li>Gt1   ：<%= big_concert_band.gt1 %></li>
+        <li>Gt2   ：<%= big_concert_band.gt2 %></li>
+        <li>Ba    ：<%= big_concert_band.ba %></li>
+        <li>Dr    ：<%= big_concert_band.dr %></li>
+        <li>Key   ：<%= big_concert_band.key %></li>
+        <li>
+          1日目：<%= marubatu(big_concert_band.day1) %><br>
+          2日目：<%= marubatu(big_concert_band.day2) %><br>
+          3日目：<%= marubatu(big_concert_band.day3) %><br>
+          4日目：<%= marubatu(big_concert_band.day4) %><br>
+        </li>
+        <li>備考：<%= big_concert_band.description %></li>
       </div>
+      <% if @can_edit.can_edit %>
+        <div class="modal-footer">
+          <div class="btn waves-effect waves-green"><%= link_to '編集', edit_big_concert_band_path(big_concert_band) %></div>
+        </div>
+      <% end %>
     </div>
   <% end %>
   <script>

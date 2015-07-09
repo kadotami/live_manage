@@ -1,0 +1,42 @@
+@import "setting";
+.form {
+  margin-top: 32px;
+  .input-field {
+    color: #fff;
+    label,input[type="text"],input[type="password"],textarea {
+      width: 90%;
+      margin: 20px 5%;
+      height: 30px;
+      line-height: 30px;
+      font-size: 20px;
+    }
+    input[type="text"],input[type="password"],textarea {
+      color: #000;
+    }
+    label {
+      top: 0;
+      left: 0;
+    }
+  }
+  .check {
+    text-align: center;
+    width: 50%;
+    margin: 24px 0;
+    float: left;
+  }
+
+
+  .actions {
+    input.btn {
+      -webkit-appearance: none;
+      width: 90%;
+      height: 56px;
+      line-height: 56px;
+      font-size: 20px;
+      margin: 20px 5%;
+      border-style: none;
+      background: $sub-color;
+      color: #fff;
+    }
+  }
+}
