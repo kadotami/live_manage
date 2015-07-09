@@ -1,9 +1,6 @@
 class SessionsController < ApplicationController
   def new
     @title = "login"
-    if signed_in?
-      redirect_to '/'
-    end
   end
 
   def create
@@ -16,12 +13,12 @@ class SessionsController < ApplicationController
         redirect_to '/'
       end
     else
-      redirect_to '/sessions/new'
+      redirect_to '/login'
     end
   end
 
   def destroy
     sign_out
-    redirect_to root_url
+    redirect_to '/login'
   end
 end

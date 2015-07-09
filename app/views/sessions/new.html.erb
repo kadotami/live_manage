@@ -1,14 +1,16 @@
 <div class="logo">
-  <%= image_tag 'logo.png' %>
 </div>
 <div class="login">
-  <div class="field">
     <%= form_for(:session, url: sessions_path) do |f| %>
 
-      <input id="session_name" name="session[name]" type="text" placeholder="ユーザーID">
-
-      <input id="session_password" name="session[password]" type="password" placeholder="パスワード">
-
+    <div class="input-field">
+      <input id="session_name" name="session[name]" type="text" />
+      <label for="session_name">ユーザーID</label>
+    </div>
+    <div class="input-field">
+      <input id="session_password" name="session[password]" type="password">
+      <label for="session_password">パスワード</label>
+    </div>
       <div class="actions">
         <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
       </div>

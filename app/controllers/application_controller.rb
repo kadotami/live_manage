@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+
+  before_action :logout
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -26,4 +29,11 @@ class ApplicationController < ActionController::Base
 
     render :template => "errors/500", :status => 500, :layout => 'application'
   end
+
+  private
+    def logout
+      unless signed_in? or params[:controller] == 'sessions'
+        redirect_to '/login'
+      end
+    end
 end
