@@ -48,9 +48,15 @@ class SmallConcertBandsController < ApplicationController
   # PATCH/PUT /small_concert_bands/1
   # PATCH/PUT /small_concert_bands/1.json
   def update
+    year = @small_concert_band.year
+    month = @small_concert_band.month
+    can_edit = SmallConcert.find(:first, :conditions => ["year = ? and month = ?", year, month])
+    if !can_edit.can_edit
+      redirect_to '/'
+    end
     respond_to do |format|
       if @small_concert_band.update(small_concert_band_params)
-        format.html { redirect_to @small_concert_band, notice: 'Small concert band was successfully updated.' }
+        format.html { redirect_to '/small_concert_bands/?year='+year.to_s+'&month='+month.to_s, notice: 'Small concert band was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -1,57 +1,68 @@
-<%= form_for(@small_concert_band) do |f| %>
-  <% if @small_concert_band.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@small_concert_band.errors.count, "error") %> prohibited this small_concert_band from being saved:</h2>
+<div class="form">
+  <%= form_for(@small_concert_band) do |f| %>
+    <% if @small_concert_band.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@small_concert_band.errors.count, "error") %> prohibited this small_concert_band from being saved:</h2>
 
-      <ul>
-      <% @small_concert_band.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @small_concert_band.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="input-field">
+      <input id="band_name" name="small_concert_band[name]" type="text" value=<%=@small_concert_band.name%> >
+      <label for="band_name" <% unless @small_concert_band.name == "" %> class="active" <% end %>>バンド名</label>
+    </div>
+    <div class="input-field">
+      <input id="band_song" name="small_concert_band[song]" type="text" placeholder="曲名" value=<%=@small_concert_band.song%> >
+      <label for="band_song" <% unless @small_concert_band.song == "" %> class="active" <% end %>>曲名</label>
+    </div>
+    <div class="input-field">
+      <input id="band_leader" name="small_concert_band[leader]" type="text" placeholder="リーダー" value=<%=@small_concert_band.leader%> >
+      <label for="band_leader" <% unless @small_concert_band.leader == "" %> class="active" <% end %>>リーダー</label>
+    </div>
+    <div class="input-field">
+      <input id="vo" name="small_concert_band[vo]" type="text" placeholder="Vo" value=<%=@small_concert_band.vo%> >
+      <label for="vo" <% unless @small_concert_band.vo == "" %> class="active" <% end %>>Vo</label>
+    </div>
+    <div class="input-field">
+      <input id="gt1" name="small_concert_band[gt1]" type="text" placeholder="Gt1" value=<%=@small_concert_band.gt1%> >
+      <label for="gt1" <% unless @small_concert_band.gt1 == "" %> class="active" <% end %>>Gt1</label>
+    </div>
+    <div class="input-field">
+      <input id="gt2" name="small_concert_band[gt2]" type="text" placeholder="Gt2" value=<%=@small_concert_band.gt2%> >
+      <label for="gt2" <% unless @small_concert_band.gt2 == "" %> class="active" <% end %>>Gt2</label>
+    </div>
+    <div class="input-field">
+      <input id="ba" name="small_concert_band[ba]" type="text" placeholder="Ba" value=<%=@small_concert_band.ba%> >
+      <label for="ba" <% unless @small_concert_band.ba == "" %> class="active" <% end %>>Ba</label>
+    </div>
+    <div class="input-field">
+      <input id="dr" name="small_concert_band[dr]" type="text" placeholder="Dr" value=<%=@small_concert_band.dr%> >
+      <label for="dr" <% unless @small_concert_band.dr == "" %> class="active" <% end %>>Dr</label>
+    </div>
+    <div class="input-field">
+      <input id="key" name="small_concert_band[key]" type="text" placeholder="Key" value=<%=@small_concert_band.key%> >
+      <label for="key" <% unless @small_concert_band.key == "" %> class="active" <% end %>>Key</label>
+    </div>
+    <div class="field check">
+      <%= f.check_box :week1 %>
+      <label for="small_concert_band_week1">1週目</label>
+    </div>
+    <div class="field check">
+      <%= f.check_box :week2 %>
+      <label for="small_concert_band_week2">2周目</label>
+    </div>
+    <div class="clear-both"></div>
+    <div class="input-field">
+      <label>備考</label><br>
+      <textarea class="materialize-textarea" name="small_concert_band[description]"><%= @small_concert_band.description %></textarea>
+    </div>
+    <div class="actions">
+      <input class="btn" name="commit" type="submit" value="上書き">
     </div>
   <% end %>
-
-  <div class="field">
-    <input name="small_concert_band[name]" type="text" placeholder="バンド名" value=<%=@small_concert_band.name%> >
-  </div>
-  <div class="field">
-    <input name="small_concert_band[song]" type="text" placeholder="曲名" value=<%=@small_concert_band.song%> >
-  </div>
-  <div class="field">
-    <input name="small_concert_band[leader]" type="text" placeholder="リーダー" value=<%=@small_concert_band.leader%> >
-  </div>
-  <div class="field">
-    <input name="small_concert_band[vo]" type="text" placeholder="Vo" value=<%=@small_concert_band.vo%> >
-  </div>
-  <div class="field">
-    <input name="small_concert_band[gt1]" type="text" placeholder="Gt1" value=<%=@small_concert_band.gt1%> >
-  </div>
-  <div class="field">
-    <input name="small_concert_band[gt2]" type="text" placeholder="Gt2" value=<%=@small_concert_band.gt2%> >
-  </div>
-  <div class="field">
-    <input name="small_concert_band[ba]" type="text" placeholder="Ba" value=<%=@small_concert_band.ba%> >
-  </div>
-  <div class="field">
-    <input name="small_concert_band[dr]" type="text" placeholder="Dr" value=<%=@small_concert_band.dr%> >
-  </div>
-  <div class="field">
-    <input name="small_concert_band[key]" type="text" placeholder="Key" value=<%=@small_concert_band.key%> >
-  </div>
-  <div class="field check">
-    <label>1週目</label>
-    <%= f.check_box :week1 %>
-  </div>
-  <div class="field check">
-    <label>2周目</label>
-    <%= f.check_box :week2 %>
-  </div>
-  <div class="field">
-    <label>備考</label><br>
-    <textarea name="small_concert_band[description]"><%= @small_concert_band.description %></textarea>
-  </div>
-  <div class="actions">
-    <input class="btn" name="commit" type="submit" value="上書き">
-  </div>
-<% end %>
-
+</div>
