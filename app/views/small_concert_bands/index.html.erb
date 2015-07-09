@@ -1,23 +1,36 @@
-<div id="accordion" class="accordion">
+<div class="band-list">
   <% @small_concert_bands.each do |small_concert_band| %>
-    <h3><%= small_concert_band.name %></h3>
-    <dl class="hide">
-      <dt>曲：<%= small_concert_band.song %></dt>
-      <dt>リーダー：<%= small_concert_band.leader %></dt>
-      <dt>Vo:<%= small_concert_band.vo %></dt>
-      <dt>Gt1：<%= small_concert_band.gt1 %></dt>
-      <dt>Gt2：<%= small_concert_band.gt2 %></dt>
-      <dt>Ba：<%= small_concert_band.ba %></dt>
-      <dt>Dr：<%= small_concert_band.dr %></dt>
-      <dt>Key：<%= small_concert_band.key %></dt>
-      <dt>
-        1周目：<%= marubatu(small_concert_band.week1) %>
-        2周目：<%= marubatu(small_concert_band.week2) %>
-      </dt>
-      <dt>備考：<%= small_concert_band.description %></dt>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal<%= small_concert_band.id %>"><%= small_concert_band.name %></a>
+    <div id="modal<%= small_concert_band.id %>" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4><%= small_concert_band.name %></h4>
+        <li>曲：<%= small_concert_band.song %></li>
+        <li>リーダー：<%= small_concert_band.leader %></li>
+        <li>Vo:<%= small_concert_band.vo %></li>
+        <li>Gt1：<%= small_concert_band.gt1 %></li>
+        <li>Gt2：<%= small_concert_band.gt2 %></li>
+        <li>Ba：<%= small_concert_band.ba %></li>
+        <li>Dr：<%= small_concert_band.dr %></li>
+        <li>Key：<%= small_concert_band.key %></li>
+        <li>
+          1周目：<%= marubatu(small_concert_band.week1) %>
+          2周目：<%= marubatu(small_concert_band.week2) %>
+        </li>
+        <li>備考：<%= small_concert_band.description %></li>
+      </div>
       <% if @can_edit.can_edit %>
-        <dt><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></dt>
+        <div class="modal-footer">
+          <div class="btn waves-effect waves-green"><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></div>
+        </div>
       <% end %>
-    </dl>
+    </div>
   <% end %>
+  <script>
+  $(document).ready(function(){
+    $('.modal-trigger').leanModal({
+      dismissible: true, 
+      opacity: .5
+    });
+  });
+  </script>
 </div>

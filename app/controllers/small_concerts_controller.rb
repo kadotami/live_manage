@@ -4,7 +4,7 @@ class SmallConcertsController < ApplicationController
   # GET /small_concerts
   # GET /small_concerts.json
   def index
-    @small_concerts = SmallConcert.all
+    @small_concerts = SmallConcert.all.order("id DESC")
     @title = "教室ライブ一覧"
   end
 
