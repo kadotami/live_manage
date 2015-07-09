@@ -1,8 +1,8 @@
 <div id="concert-list">
   <% @big_concerts.each do |big_concert| %>
-    <li><a href="/big_concert_bands?year=<%= big_concert.year %>&season=<%= big_concert.season %>">
+    <a class="btn waves-effect" href="/big_concert_bands?year=<%= big_concert.year %>&season=<%= big_concert.season %>">
       <%= big_concert.year %>年
       <%= season_string(big_concert.season) %>
-    </a></li>
+    </a>
   <% end %>
 </div>
