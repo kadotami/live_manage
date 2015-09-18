@@ -3,6 +3,9 @@ Wuk::Application.routes.draw do
   get "/error", to: 'top#error'
   get "/login", to: 'sessions#new'
   get "/signup", to: 'users#new'
+
+  resources :users, only: [:new, :create, :destroy]
+
   resources :big_concert_bands
 
   resources :small_concert_bands

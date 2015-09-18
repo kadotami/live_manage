@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
 
   private
     def logout
-      unless signed_in? or params[:controller] == 'sessions'
+      unless signed_in? or params[:controller] == 'sessions' or (params[:controller] == 'users' and (params[:action] == 'new' or params[:action] == 'create'))
         redirect_to '/login'
       end
     end

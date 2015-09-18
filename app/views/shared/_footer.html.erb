@@ -1,5 +1,6 @@
-<% if controller.controller_name !='sessions' and current_user.role_flag %>
+<% if signed_in? and current_user.role_flag %>
   <div id="footer">
     <a class="f-right" href="/admin/">管理画面へ</a>
   </div>
 <%end%>
+
