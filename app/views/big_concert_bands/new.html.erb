@@ -17,8 +17,8 @@
       <label for="band_name">バンド名</label>
     </div>
     <div class="input-field">
-      <input id="band_leader" name="big_concert_band[leader]" type="text" value=<%=@big_concert_band.leader%> >
-      <label for="band_leader">リーダー</label>
+      <input id="band_leader" name="big_concert_band[leader]" type="text" value=<%= @current_user.name %> >
+      <label for="band_leader" class="active">リーダー</label>
     </div>
     <div class="input-field">
       <input id="vo" name="big_concert_band[vo]" type="text" value=<%=@big_concert_band.vo%> >
