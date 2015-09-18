@@ -36,6 +36,7 @@ class BigConcertBandsController < ApplicationController
     last_concert = BigConcert.last
     @big_concert_band.year = last_concert.year
     @big_concert_band.season = last_concert.season
+    @big_concert_band.user_id = current_user.id
     respond_to do |format|
       if @big_concert_band.save
         format.html { redirect_to '/big_concert_bands/?year='+last_concert.year.to_s+'&season='+last_concert.season.to_s, notice: 'Big concert band was successfully created.' }

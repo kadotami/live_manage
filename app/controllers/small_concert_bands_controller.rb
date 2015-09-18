@@ -34,7 +34,7 @@ class SmallConcertBandsController < ApplicationController
     last_concert = SmallConcert.last
     @small_concert_band.year = last_concert.year
     @small_concert_band.month = last_concert.month
-
+    @small_concert_band.user_id = current_user.id
     respond_to do |format|
       if @small_concert_band.save
         format.html { redirect_to '/small_concert_bands/?year='+last_concert.year.to_s+'&month='+last_concert.month.to_s, notice: 'Small concert band was successfully created.' }

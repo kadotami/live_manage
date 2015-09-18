@@ -20,7 +20,7 @@
         </li>
         <li>備考：<%= big_concert_band.description %></li>
       </div>
-      <% if @can_edit.can_edit %>
+      <% if @can_edit.can_edit and @current_user.id == big_concert_band.user_id %>
         <div class="modal-footer">
           <div class="btn waves-effect waves-green"><%= link_to '編集', edit_big_concert_band_path(big_concert_band) %></div>
         </div>
