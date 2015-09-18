@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140621072808) do
+ActiveRecord::Schema.define(version: 20150918081939) do
 
   create_table "big_concert_bands", force: true do |t|
     t.string   "name",        null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140621072808) do
     t.integer  "season"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "big_concerts", force: true do |t|
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140621072808) do
     t.integer  "month"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "small_concerts", force: true do |t|
