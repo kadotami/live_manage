@@ -8,7 +8,7 @@ class BigConcertBandsController < ApplicationController
     season_param = params[:season]
     season = season_string(season_param.to_i)
     @title = year.to_s + "年" + season + "コン"
-    @big_concert_bands = BigConcertBand.where(year: year).where(season: season_param).load
+    @big_concert_bands = BigConcertBand.where(year: year).where(season: season_param).order("id DESC").load
     @can_edit = BigConcert.find(:first, :conditions => ["year = ? and season = ?", year, season_param])
 
   end

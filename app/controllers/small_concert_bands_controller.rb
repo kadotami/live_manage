@@ -8,7 +8,7 @@ class SmallConcertBandsController < ApplicationController
     month = params[:month]
     @title = year + "年" + month + "月教室"
     @small_concert_bands = SmallConcertBand.where(year: year)
-                                          .where(month: month).load
+                                          .where(month: month).order("id DESC").load
     @can_edit = SmallConcert.find(:first, :conditions => ["year = ? and month = ?", year, month])
   end
 
