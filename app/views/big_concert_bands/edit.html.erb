@@ -2,7 +2,7 @@
   <%= form_for(@big_concert_band) do |f| %>
     <% if @big_concert_band.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@big_concert_band.errors.count, "error") %> prohibited this big_concert_band from being saved:</h2>
+        <p><%= pluralize(@big_concert_band.errors.count, "error") %> prohibited this big_concert_band from being saved:</p>
 
         <ul>
         <% @big_concert_band.errors.full_messages.each do |msg| %>
