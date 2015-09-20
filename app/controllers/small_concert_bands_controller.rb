@@ -25,9 +25,7 @@ class SmallConcertBandsController < ApplicationController
   # GET /small_concert_bands/1/edit
   def edit
     @small_concert_band = SmallConcertBand.find(params[:id])
-    year = @small_concert_band.year
-    month = @small_concert_band.month
-    if !can_edit?(year,month) or current_user.id != @small_concert_band.user_id
+    if !can_edit?(@small_concert_band.year,@small_concert_band.month,@small_concert_band.user_id)
       redirect_to '/'
     end
   end
@@ -53,15 +51,12 @@ class SmallConcertBandsController < ApplicationController
   # PATCH/PUT /small_concert_bands/1
   # PATCH/PUT /small_concert_bands/1.json
   def update
-    year = @small_concert_band.year
-    month = @small_concert_band.month
-    can_edit = SmallConcert.find(:first, :conditions => ["year = ? and month = ?", year, month])
-    if !can_edit.can_edit or current_user.id != @small_concert_band.user_id
-      redirect_to '/'
+    if !can_edit?(@small_concert_band.year,@small_concert_band.month,@small_concert_band.user_id)
+      return
     end
     respond_to do |format|
       if @small_concert_band.update(small_concert_band_params)
-        format.html { redirect_to '/small_concert_bands/?year='+year.to_s+'&month='+month.to_s, notice: 'Small concert band was successfully updated.' }
+        format.html { redirect_to '/small_concert_bands/?year='+@small_concert_band.year.to_s+'&month='+@small_concert_band.month.to_s, notice: 'Small concert band was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -71,14 +66,12 @@ class SmallConcertBandsController < ApplicationController
   end
 
   def destroy
-    # if !can_edit.can_edit or current_user.id != @small_concert_band.user_id
-    #   redirect_to '/'
-    # end
-    year = @small_concert_band.year
-    month = @small_concert_band.month
+    if !can_edit?(@small_concert_band.year,@small_concert_band.month,@small_concert_band.user_id)
+      redirect_to '/'
+    end
     @small_concert_band.destroy
     respond_to do |format|
-      format.html { redirect_to "/small_concert_bands?year="+year.to_s+"&month="+month.to_s}
+      format.html { redirect_to "/small_concert_bands?year="+@small_concert_band.year.to_s+"&month="+@small_concert_band.month.to_s}
       format.json { head :no_content }
     end
   end

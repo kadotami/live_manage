@@ -27,9 +27,7 @@ class BigConcertBandsController < ApplicationController
   # GET /big_concert_bands/1/edit
   def edit
     @big_concert_band = BigConcertBand.find(params[:id])
-    year = @big_concert_band.year
-    season = @big_concert_band.season
-    if !can_edit?(year,month) or current_user.id != @big_concert_band.user_id
+    if !can_edit?(@big_concert_band.year,@big_concert_band.season,@big_concert_band.user_id)
       redirect_to '/'
     end
   end
@@ -55,15 +53,12 @@ class BigConcertBandsController < ApplicationController
   # PATCH/PUT /big_concert_bands/1
   # PATCH/PUT /big_concert_bands/1.json
   def update
-    year = @big_concert_band.year
-    season = @big_concert_band.season
-    can_edit = BigConcert.find(:first, :conditions => ["year = ? and season = ?", year, season])
-    if !can_edit.can_edit or current_user.id != @big_concert_band.user_id
+    if !can_edit?(@big_concert_band.year,@big_concert_band.season,@big_concert_band.user_id)
       redirect_to '/'
     end
     respond_to do |format|
       if @big_concert_band.update(big_concert_band_params)
-        format.html { redirect_to '/big_concert_bands/?year='+year.to_s+'&season='+season.to_s, notice: 'Big concert band was successfully updated.' }
+        format.html { redirect_to '/big_concert_bands/?year='+@big_concert_band.year.to_s+'&season='+@big_concert_band.season.to_s, notice: 'Big concert band was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -73,14 +68,12 @@ class BigConcertBandsController < ApplicationController
   end
 
   def destroy
-    if !can_edit.can_edit or current_user.id != @big_concert_band.user_id
+    if !can_edit?(@big_concert_band.year,@big_concert_band.season,@big_concert_band.user_id)
       redirect_to '/'
     end
-    year = @big_concert_band.year
-    season = @big_concert_band.season
     @big_concert_band.destroy
     respond_to do |format|
-      format.html { redirect_to '/big_concert_bands?year='+year.to_s+"&season="+season.to_s }
+      format.html { redirect_to '/big_concert_bands?year='+@big_concert_band.year.to_s+"&season="+@big_concert_band.season.to_s }
       format.json { head :no_content }
     end
   end
