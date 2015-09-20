@@ -1,6 +1,6 @@
 class SmallConcertBandsController < ApplicationController
   before_action :set_small_concert_band, only: [:show, :edit, :update, :destroy]
-
+  include SmallConcertBandsHelper
   # GET /small_concert_bands
   # GET /small_concert_bands.json
   def index
@@ -25,6 +25,11 @@ class SmallConcertBandsController < ApplicationController
   # GET /small_concert_bands/1/edit
   def edit
     @small_concert_band = SmallConcertBand.find(params[:id])
+    year = @small_concert_band.year
+    month = @small_concert_band.month
+    if !can_edit?(year,month) or current_user.id != @small_concert_band.user_id
+      redirect_to '/'
+    end
   end
 
   # POST /small_concert_bands
@@ -51,7 +56,7 @@ class SmallConcertBandsController < ApplicationController
     year = @small_concert_band.year
     month = @small_concert_band.month
     can_edit = SmallConcert.find(:first, :conditions => ["year = ? and month = ?", year, month])
-    if !can_edit.can_edit
+    if !can_edit.can_edit or current_user.id != @small_concert_band.user_id
       redirect_to '/'
     end
     respond_to do |format|
@@ -62,6 +67,19 @@ class SmallConcertBandsController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @small_concert_band.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    # if !can_edit.can_edit or current_user.id != @small_concert_band.user_id
+    #   redirect_to '/'
+    # end
+    year = @small_concert_band.year
+    month = @small_concert_band.month
+    @small_concert_band.destroy
+    respond_to do |format|
+      format.html { redirect_to "/small_concert_bands?year="+year.to_s+"&month="+month.to_s}
+      format.json { head :no_content }
     end
   end
 

@@ -20,6 +20,7 @@
       <% if @can_edit.can_edit and @current_user.id == small_concert_band.user_id %>
         <div class="modal-footer">
           <div class="btn waves-effect waves-green"><%= link_to '編集', edit_small_concert_band_path(small_concert_band) %></div>
+          <div class="btn waves-effect waves-green"><a data-confirm="本当に削除しますか?" data-method="delete" href="/small_concert_bands/<%=small_concert_band.id%>" rel="nofollow">削除</a></div>
         </div>
       <% end %>
     </div>
