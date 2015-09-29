@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if params[:user][:keyword] == 'ilikebeer'
+    if params[:user][:keyword] == YAML.load(File.open("config/setting.yml"))[:keyword]
       respond_to do |format|
         if @user.save
           sign_in @user
