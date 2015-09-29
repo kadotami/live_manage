@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150918081939) do
 
-  create_table "big_concert_bands", force: true do |t|
+  create_table "big_concert_bands", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "leader",      null: false
     t.string   "vo"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150918081939) do
     t.integer  "user_id"
   end
 
-  create_table "big_concerts", force: true do |t|
+  create_table "big_concerts", force: :cascade do |t|
     t.integer  "year",                      null: false
     t.integer  "season",                    null: false
     t.boolean  "can_edit",   default: true
@@ -42,7 +42,9 @@ ActiveRecord::Schema.define(version: 20150918081939) do
     t.datetime "updated_at"
   end
 
-  create_table "small_concert_bands", force: true do |t|
+  add_index "big_concerts", ["year", "season"], name: "index_big_concerts_on_year_and_season", unique: true
+
+  create_table "small_concert_bands", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "song",        null: false
     t.string   "leader",      null: false
@@ -62,7 +64,7 @@ ActiveRecord::Schema.define(version: 20150918081939) do
     t.integer  "user_id"
   end
 
-  create_table "small_concerts", force: true do |t|
+  create_table "small_concerts", force: :cascade do |t|
     t.integer  "year",                      null: false
     t.integer  "month",                     null: false
     t.boolean  "can_edit",   default: true
@@ -70,7 +72,9 @@ ActiveRecord::Schema.define(version: 20150918081939) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  add_index "small_concerts", ["year", "month"], name: "index_small_concerts_on_year_and_month", unique: true
+
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.integer  "authority"
     t.datetime "created_at"

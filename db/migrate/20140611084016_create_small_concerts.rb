@@ -7,5 +7,6 @@ class CreateSmallConcerts < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :small_concerts, [:year, :month], :unique => true
   end
 end

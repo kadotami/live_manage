@@ -7,5 +7,6 @@ class CreateBigConcerts < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :big_concerts, [:year, :season], :unique => true
   end
 end
