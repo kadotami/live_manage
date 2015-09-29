@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   def new
     @title = "login"
+    if signed_in?
+      redirect_to '/'
+    end
   end
 
   def create

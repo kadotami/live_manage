@@ -6,13 +6,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    respond_to do |format|
-      if @user.save
-        sign_in @user
-        format.html {redirect_to '/'}
-      else
-        render 'new'
+    if params[:user][:keyword] == 'ilikebeer'
+      respond_to do |format|
+        if @user.save
+          sign_in @user
+          format.html {redirect_to '/'}
+        else
+          return render 'new'
+        end
       end
+    else
+      return render 'new'
     end
   end
 
