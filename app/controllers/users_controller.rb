@@ -6,17 +6,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if params[:user][:keyword] == YAML.load(File.open("config/setting.yml"))[:keyword]
+    if params[:user][:keyword] == YAML.load(File.open("config/setting.yml"))["keyword"]
       respond_to do |format|
         if @user.save
           sign_in @user
           format.html {redirect_to '/'}
         else
-          return render 'new'
+          return redirect_to '/signup'
         end
       end
     else
-      return render 'new'
+      return redirect_to '/signup'
     end
   end
 
