@@ -71,10 +71,9 @@ group  :development, :test do
   gem 'binding_of_caller'
   gem 'bullet'
   gem "rspec-rails"
-  gem "capybara"
+  gem "capybara", '>= 2.2.0'
   gem "database_cleaner"
   gem 'factory_girl_rails'
   gem 'guard-rspec'
   # PhantomJS driver for Capybara
-  gem 'poltergeist', '~> 1.4.1'
 end
