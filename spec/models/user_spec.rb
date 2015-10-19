@@ -29,4 +29,20 @@ RSpec.describe User, type: :model do
 
     it { expect(@user).to be_invalid }
   end
+
+  describe "return value of authenticate method" do
+    before { @user.save }
+    let(:found_user) { User.find_by(name: @user.name) }
+
+    describe "with valid password" do
+      it { expect(@user).to eq found_user.authenticate(@user.password) }
+    end
+
+    describe "with invalid password" do
+      let(:user_for_invalid_password) { found_user.authenticate("invalid") }
+
+      it { expect(@user).not_to eq user_for_invalid_password }
+      specify { expect(user_for_invalid_password).to be false }
+    end
+  end
 end

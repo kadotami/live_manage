@@ -351,6 +351,3 @@ DEPENDENCIES
   uuidtools
   validates_email_format_of
   yaml_db
-
-BUNDLED WITH
-   1.10.6
