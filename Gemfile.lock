@@ -153,6 +153,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
+    libv8 (3.16.14.11)
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -230,7 +231,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
-      json (~> 1.4)
+    ref (2.0.0)
     request_store (1.2.0)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
@@ -274,6 +275,9 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.11)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.4)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -339,6 +343,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
+  therubyracer
   thin
   turbolinks
   uglifier (>= 1.3.0)
@@ -346,3 +351,6 @@ DEPENDENCIES
   uuidtools
   validates_email_format_of
   yaml_db
+
+BUNDLED WITH
+   1.10.6

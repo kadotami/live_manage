@@ -46,6 +46,7 @@ gem 'quiet_assets'
 gem 'paperclip'
 gem 'font-awesome-rails'
 gem 'yaml_db'
+gem 'therubyracer'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
