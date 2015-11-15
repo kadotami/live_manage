@@ -5,7 +5,7 @@
 
     <div class="input-field">
       <input id="session_name" name="session[name]" type="text" />
-      <label for="session_name">ユーザーID</label>
+      <label for="session_name">ユーザーネーム</label>
     </div>
     <div class="input-field">
       <input id="session_password" name="session[password]" type="password">
@@ -15,5 +15,9 @@
         <%= f.submit "Login", class: "btn btn-large btn-primary" %>
       </div>
     <% end %>
+
+    <div style="margin:24px 5%;">
+      <span>登録していない方は<a style="display:inline" href="/signup">こちら</a></span>
+    </div>
   </div>
 </div>
