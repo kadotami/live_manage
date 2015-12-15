@@ -13,35 +13,35 @@
     <% end %>
 
     <div class="input-field">
-      <input id="band_name" name="big_concert_band[name]" type="text" value=<%=@big_concert_band.name%> >
+      <input id="band_name" name="big_concert_band[name]" type="text">
       <label for="band_name">バンド名</label>
     </div>
     <div class="input-field">
-      <input id="band_leader" name="big_concert_band[leader]" type="text" value=<%= @current_user.name %> >
+      <input id="band_leader" name="big_concert_band[leader]" type="text" value=<%= @big_concert_band.leader %> >
       <label for="band_leader" class="active">リーダー</label>
     </div>
     <div class="input-field">
-      <input id="vo" name="big_concert_band[vo]" type="text" value=<%=@big_concert_band.vo%> >
+      <input id="vo" name="big_concert_band[vo]" type="text" >
       <label for="vo">Vo</label>
     </div>
     <div class="input-field">
-      <input id="gt1" name="big_concert_band[gt1]" type="text" value=<%=@big_concert_band.gt1%> >
+      <input id="gt1" name="big_concert_band[gt1]" type="text">
       <label for="gt1">Gt1</label>
     </div>
     <div class="input-field">
-      <input id="gt2" name="big_concert_band[gt2]" type="text" value=<%=@big_concert_band.gt2%> >
+      <input id="gt2" name="big_concert_band[gt2]" type="text"  >
       <label for="gt2">Gt2</label>
     </div>
     <div class="input-field">
-      <input id="ba" name="big_concert_band[ba]" type="text" value=<%=@big_concert_band.ba%> >
+      <input id="ba" name="big_concert_band[ba]" type="text" >
       <label for="ba">Ba</label>
     </div>
     <div class="input-field">
-      <input id="dr" name="big_concert_band[dr]" type="text" value=<%=@big_concert_band.dr%> >
+      <input id="dr" name="big_concert_band[dr]" type="text" >
       <label for="dr">Dr</label>
     </div>
     <div class="input-field">
-      <input id="key" name="big_concert_band[key]" type="text" value=<%=@big_concert_band.key%> >
+      <input id="key" name="big_concert_band[key]" type="text" >
       <label for="key">Key</label>
     </div>
     <div class="field check">
@@ -63,7 +63,7 @@
     <div class="clear-both"></div>
     <div class="input-field">
       <label>備考</label><br>
-      <textarea class="materialize-textarea" name="big_concert_band[description]"><%=@big_concert_band.description%></textarea>
+      <textarea class="materialize-textarea" name="big_concert_band[description]"></textarea>
     </div>
     <div class="actions">
       <input class="btn" name="commit" type="submit" value="申請">
